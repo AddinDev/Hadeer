@@ -1,0 +1,777 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B809849F27C4914E006B7224 /* HadeerApp.swift */; };
+		B80984A227C4914E006B7224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984A127C4914E006B7224 /* ContentView.swift */; };
+		B80984A427C4914F006B7224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80984A327C4914F006B7224 /* Assets.xcassets */; };
+		B80984A727C4914F006B7224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B80984A627C4914F006B7224 /* Preview Assets.xcassets */; };
+		B80984B127C4914F006B7224 /* HadeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984B027C4914F006B7224 /* HadeerTests.swift */; };
+		B80984BB27C4914F006B7224 /* HadeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BA27C4914F006B7224 /* HadeerUITests.swift */; };
+		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
+		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B80984AD27C4914F006B7224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B809849427C4914D006B7224 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B809849B27C4914D006B7224;
+			remoteInfo = Hadeer;
+		};
+		B80984B727C4914F006B7224 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B809849427C4914D006B7224 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B809849B27C4914D006B7224;
+			remoteInfo = Hadeer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B809849C27C4914D006B7224 /* Hadeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hadeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B809849F27C4914E006B7224 /* HadeerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerApp.swift; sourceTree = "<group>"; };
+		B80984A127C4914E006B7224 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B80984A327C4914F006B7224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B80984A627C4914F006B7224 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B80984AC27C4914F006B7224 /* HadeerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80984B027C4914F006B7224 /* HadeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerTests.swift; sourceTree = "<group>"; };
+		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
+		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B809849927C4914D006B7224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B80984CB27C495C0006B7224 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80984A927C4914F006B7224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80984B327C4914F006B7224 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B809849327C4914D006B7224 = {
+			isa = PBXGroup;
+			children = (
+				B809849E27C4914E006B7224 /* Hadeer */,
+				B80984AF27C4914F006B7224 /* HadeerTests */,
+				B80984B927C4914F006B7224 /* HadeerUITests */,
+				B809849D27C4914D006B7224 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B809849D27C4914D006B7224 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B809849C27C4914D006B7224 /* Hadeer.app */,
+				B80984AC27C4914F006B7224 /* HadeerTests.xctest */,
+				B80984B627C4914F006B7224 /* HadeerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B809849E27C4914E006B7224 /* Hadeer */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7A127C4FC1D00AEE076 /* App */,
+				B8D4D7A427C4FC4900AEE076 /* Core */,
+				B8D4D7A327C4FC3D00AEE076 /* Module */,
+				B8D4D7A227C4FC2D00AEE076 /* Supporting Files */,
+				B80984A527C4914F006B7224 /* Preview Content */,
+			);
+			path = Hadeer;
+			sourceTree = "<group>";
+		};
+		B80984A527C4914F006B7224 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B80984A627C4914F006B7224 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B80984AF27C4914F006B7224 /* HadeerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B80984B027C4914F006B7224 /* HadeerTests.swift */,
+			);
+			path = HadeerTests;
+			sourceTree = "<group>";
+		};
+		B80984B927C4914F006B7224 /* HadeerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B80984BA27C4914F006B7224 /* HadeerUITests.swift */,
+				B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */,
+			);
+			path = HadeerUITests;
+			sourceTree = "<group>";
+		};
+		B8D4D7A127C4FC1D00AEE076 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B809849F27C4914E006B7224 /* HadeerApp.swift */,
+				B80984A127C4914E006B7224 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8D4D7A227C4FC2D00AEE076 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B80984A327C4914F006B7224 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8D4D7A327C4FC3D00AEE076 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7A627C4FC6500AEE076 /* Signer */,
+				B8D4D7A527C4FC5C00AEE076 /* Main */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		B8D4D7A427C4FC4900AEE076 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7AB27C4FCF400AEE076 /* System Preference */,
+				B8D4D7AA27C4FCB700AEE076 /* Domain */,
+				B8D4D7A927C4FCB200AEE076 /* Data */,
+				B8D4D7A827C4FCA800AEE076 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B8D4D7A527C4FC5C00AEE076 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7A727C4FC7300AEE076 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B8D4D7A627C4FC6500AEE076 /* Signer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signer;
+			sourceTree = "<group>";
+		};
+		B8D4D7A727C4FC7300AEE076 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B8D4D7A827C4FCA800AEE076 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7B327C4FD3500AEE076 /* Mapper */,
+				B8D4D7B227C4FD3000AEE076 /* Networking */,
+				B8D4D7B127C4FD2A00AEE076 /* Helper */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B8D4D7A927C4FCB200AEE076 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7AE27C4FD0900AEE076 /* Repository */,
+				B8D4D7AD27C4FD0600AEE076 /* Locale */,
+				B8D4D7AC27C4FD0300AEE076 /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B8D4D7AA27C4FCB700AEE076 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7B427C4FD3E00AEE076 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B8D4D7AB27C4FCF400AEE076 /* System Preference */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "System Preference";
+			sourceTree = "<group>";
+		};
+		B8D4D7AC27C4FD0300AEE076 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7AF27C4FD1800AEE076 /* Response */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		B8D4D7AD27C4FD0600AEE076 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				B8D4D7B027C4FD1C00AEE076 /* Entity */,
+			);
+			path = Locale;
+			sourceTree = "<group>";
+		};
+		B8D4D7AE27C4FD0900AEE076 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B8D4D7AF27C4FD1800AEE076 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		B8D4D7B027C4FD1C00AEE076 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		B8D4D7B127C4FD2A00AEE076 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B8D4D7B227C4FD3000AEE076 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B8D4D7B327C4FD3500AEE076 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		B8D4D7B427C4FD3E00AEE076 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B809849B27C4914D006B7224 /* Hadeer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B80984C027C4914F006B7224 /* Build configuration list for PBXNativeTarget "Hadeer" */;
+			buildPhases = (
+				B809849827C4914D006B7224 /* Sources */,
+				B809849927C4914D006B7224 /* Frameworks */,
+				B809849A27C4914D006B7224 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hadeer;
+			packageProductDependencies = (
+				B80984CA27C495C0006B7224 /* Alamofire */,
+			);
+			productName = Hadeer;
+			productReference = B809849C27C4914D006B7224 /* Hadeer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B80984AB27C4914F006B7224 /* HadeerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B80984C327C4914F006B7224 /* Build configuration list for PBXNativeTarget "HadeerTests" */;
+			buildPhases = (
+				B80984A827C4914F006B7224 /* Sources */,
+				B80984A927C4914F006B7224 /* Frameworks */,
+				B80984AA27C4914F006B7224 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B80984AE27C4914F006B7224 /* PBXTargetDependency */,
+			);
+			name = HadeerTests;
+			productName = HadeerTests;
+			productReference = B80984AC27C4914F006B7224 /* HadeerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B80984B527C4914F006B7224 /* HadeerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B80984C627C4914F006B7224 /* Build configuration list for PBXNativeTarget "HadeerUITests" */;
+			buildPhases = (
+				B80984B227C4914F006B7224 /* Sources */,
+				B80984B327C4914F006B7224 /* Frameworks */,
+				B80984B427C4914F006B7224 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B80984B827C4914F006B7224 /* PBXTargetDependency */,
+			);
+			name = HadeerUITests;
+			productName = HadeerUITests;
+			productReference = B80984B627C4914F006B7224 /* HadeerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B809849427C4914D006B7224 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					B809849B27C4914D006B7224 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					B80984AB27C4914F006B7224 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = B809849B27C4914D006B7224;
+					};
+					B80984B527C4914F006B7224 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = B809849B27C4914D006B7224;
+					};
+				};
+			};
+			buildConfigurationList = B809849727C4914D006B7224 /* Build configuration list for PBXProject "Hadeer" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B809849327C4914D006B7224;
+			packageReferences = (
+				B80984C927C495C0006B7224 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			productRefGroup = B809849D27C4914D006B7224 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B809849B27C4914D006B7224 /* Hadeer */,
+				B80984AB27C4914F006B7224 /* HadeerTests */,
+				B80984B527C4914F006B7224 /* HadeerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B809849A27C4914D006B7224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B80984A727C4914F006B7224 /* Preview Assets.xcassets in Resources */,
+				B80984A427C4914F006B7224 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80984AA27C4914F006B7224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80984B427C4914F006B7224 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B809849827C4914D006B7224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
+				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80984A827C4914F006B7224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B80984B127C4914F006B7224 /* HadeerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B80984B227C4914F006B7224 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B80984BB27C4914F006B7224 /* HadeerUITests.swift in Sources */,
+				B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B80984AE27C4914F006B7224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B809849B27C4914D006B7224 /* Hadeer */;
+			targetProxy = B80984AD27C4914F006B7224 /* PBXContainerItemProxy */;
+		};
+		B80984B827C4914F006B7224 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B809849B27C4914D006B7224 /* Hadeer */;
+			targetProxy = B80984B727C4914F006B7224 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B80984BE27C4914F006B7224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B80984BF27C4914F006B7224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B80984C127C4914F006B7224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hadeer/Preview Content\"";
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.Hadeer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B80984C227C4914F006B7224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Hadeer/Preview Content\"";
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.Hadeer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B80984C427C4914F006B7224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.HadeerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hadeer.app/Hadeer";
+			};
+			name = Debug;
+		};
+		B80984C527C4914F006B7224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.HadeerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hadeer.app/Hadeer";
+			};
+			name = Release;
+		};
+		B80984C727C4914F006B7224 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.HadeerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hadeer;
+			};
+			name = Debug;
+		};
+		B80984C827C4914F006B7224 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SWR83G7DDM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.addindev.HadeerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hadeer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B809849727C4914D006B7224 /* Build configuration list for PBXProject "Hadeer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B80984BE27C4914F006B7224 /* Debug */,
+				B80984BF27C4914F006B7224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B80984C027C4914F006B7224 /* Build configuration list for PBXNativeTarget "Hadeer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B80984C127C4914F006B7224 /* Debug */,
+				B80984C227C4914F006B7224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B80984C327C4914F006B7224 /* Build configuration list for PBXNativeTarget "HadeerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B80984C427C4914F006B7224 /* Debug */,
+				B80984C527C4914F006B7224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B80984C627C4914F006B7224 /* Build configuration list for PBXNativeTarget "HadeerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B80984C727C4914F006B7224 /* Debug */,
+				B80984C827C4914F006B7224 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B80984C927C495C0006B7224 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B80984CA27C495C0006B7224 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B80984C927C495C0006B7224 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B809849427C4914D006B7224 /* Project object */;
+}
