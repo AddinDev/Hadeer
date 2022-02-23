@@ -123,7 +123,7 @@ extension SignerView {
   
 }
 
-struct SignerView_Previews: PreviewProvider {
+private struct SignerView_Previews: PreviewProvider {
     static var previews: some View {
         SignerView()
     }

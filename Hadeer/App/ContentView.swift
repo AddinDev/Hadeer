@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
 //      NavigationView {
 //        TabView(selection: $selected) {
-          SignerView()
+          HomeView()
 //          .navigationTitle("")
 //          .navigationBarHidden(true)
 //        }
