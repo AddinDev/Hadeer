@@ -15,6 +15,10 @@
 		B80984BB27C4914F006B7224 /* HadeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BA27C4914F006B7224 /* HadeerUITests.swift */; };
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
+		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
+		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
+		B8D8EE6027C5B70D00277158 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5F27C5B70D00277158 /* SignInView.swift */; };
+		B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE6127C5BA8300277158 /* Poppins.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,11 @@
 		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		B8D8EE5F27C5B70D00277158 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		B8D8EE6127C5BA8300277158 /* Poppins.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poppins.ttf; sourceTree = "<group>"; };
+		B8D8EE6327C5BAAE00277158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +85,7 @@
 		B809849327C4914D006B7224 = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE5927C5B36300277158 /* .swiftlint.yml */,
 				B809849E27C4914E006B7224 /* Hadeer */,
 				B80984AF27C4914F006B7224 /* HadeerTests */,
 				B80984B927C4914F006B7224 /* HadeerUITests */,
@@ -96,6 +106,7 @@
 		B809849E27C4914E006B7224 /* Hadeer */ = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE6327C5BAAE00277158 /* Info.plist */,
 				B8D4D7A127C4FC1D00AEE076 /* App */,
 				B8D4D7A427C4FC4900AEE076 /* Core */,
 				B8D4D7A327C4FC3D00AEE076 /* Module */,
@@ -142,6 +153,7 @@
 		B8D4D7A227C4FC2D00AEE076 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE6127C5BA8300277158 /* Poppins.ttf */,
 				B80984A327C4914F006B7224 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -150,7 +162,7 @@
 		B8D4D7A327C4FC3D00AEE076 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				B8D4D7A627C4FC6500AEE076 /* Signer */,
+				B8D4D7A627C4FC6500AEE076 /* Root */,
 				B8D4D7A527C4FC5C00AEE076 /* Main */,
 			);
 			path = Module;
@@ -159,6 +171,7 @@
 		B8D4D7A427C4FC4900AEE076 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE4E27C5B1A800277158 /* Injection */,
 				B8D4D7AB27C4FCF400AEE076 /* System Preference */,
 				B8D4D7AA27C4FCB700AEE076 /* Domain */,
 				B8D4D7A927C4FCB200AEE076 /* Data */,
@@ -175,16 +188,22 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		B8D4D7A627C4FC6500AEE076 /* Signer */ = {
+		B8D4D7A627C4FC6500AEE076 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE5127C5B1D900277158 /* Splash Screen */,
+				B8D8EE5027C5B1D300277158 /* OnBoarding */,
+				B8D8EE4F27C5B1CE00277158 /* Signer */,
 			);
-			path = Signer;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		B8D4D7A727C4FC7300AEE076 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE5427C5B2D700277158 /* View */,
+				B8D8EE5327C5B2CB00277158 /* Presenter */,
+				B8D8EE5527C5B2E400277158 /* Router */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -212,6 +231,7 @@
 		B8D4D7AA27C4FCB700AEE076 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B8D8EE5227C5B21A00277158 /* UseCase */,
 				B8D4D7B427C4FD3E00AEE076 /* Model */,
 			);
 			path = Domain;
@@ -289,6 +309,80 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B8D8EE4E27C5B1A800277158 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		B8D8EE4F27C5B1CE00277158 /* Signer */ = {
+			isa = PBXGroup;
+			children = (
+				B8D8EE5E27C5B70200277158 /* Presenter */,
+				B8D8EE5C27C5B6DA00277158 /* View */,
+			);
+			path = Signer;
+			sourceTree = "<group>";
+		};
+		B8D8EE5027C5B1D300277158 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		B8D8EE5127C5B1D900277158 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		B8D8EE5227C5B21A00277158 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		B8D8EE5327C5B2CB00277158 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B8D8EE5427C5B2D700277158 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8D8EE5727C5B32600277158 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8D8EE5527C5B2E400277158 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B8D8EE5C27C5B6DA00277158 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8D8EE5F27C5B70D00277158 /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8D8EE5E27C5B70200277158 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,6 +393,7 @@
 				B809849827C4914D006B7224 /* Sources */,
 				B809849927C4914D006B7224 /* Frameworks */,
 				B809849A27C4914D006B7224 /* Resources */,
+				B8D8EE5B27C5B38900277158 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -399,6 +494,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */,
+				B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */,
 				B80984A727C4914F006B7224 /* Preview Assets.xcassets in Resources */,
 				B80984A427C4914F006B7224 /* Assets.xcassets in Resources */,
 			);
@@ -420,12 +517,34 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B8D8EE5B27C5B38900277158 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then \n    swiftlint \nelse \n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\" \nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B809849827C4914D006B7224 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
+				B8D8EE6027C5B70D00277158 /* SignInView.swift in Sources */,
 				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +709,7 @@
 				DEVELOPMENT_TEAM = SWR83G7DDM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hadeer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -619,6 +739,7 @@
 				DEVELOPMENT_TEAM = SWR83G7DDM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Hadeer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
