@@ -12,13 +12,13 @@ struct ContentView: View {
   @State private var selected = 0
   
     var body: some View {
-      NavigationView {
+//      NavigationView {
 //        TabView(selection: $selected) {
-          SignInView()
-          .navigationTitle("")
-          .navigationBarHidden(true)
+          SignerView()
+//          .navigationTitle("")
+//          .navigationBarHidden(true)
 //        }
-      }
+//      }
     }
 }
 

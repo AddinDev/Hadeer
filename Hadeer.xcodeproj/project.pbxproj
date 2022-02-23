@@ -15,11 +15,10 @@
 		B80984BB27C4914F006B7224 /* HadeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BA27C4914F006B7224 /* HadeerUITests.swift */; };
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
+		B850FB8327C6688900776925 /* SignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850FB8227C6688900776925 /* SignerView.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
-		B8D8EE6027C5B70D00277158 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5F27C5B70D00277158 /* SignInView.swift */; };
 		B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE6127C5BA8300277158 /* Poppins.ttf */; };
-		B8D8EE6727C5CD4E00277158 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE6627C5CD4E00277158 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +49,11 @@
 		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B850FB8227C6688900776925 /* SignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerView.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		B8D8EE5F27C5B70D00277158 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		B8D8EE6127C5BA8300277158 /* Poppins.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poppins.ttf; sourceTree = "<group>"; };
 		B8D8EE6327C5BAAE00277158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B8D8EE6627C5CD4E00277158 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,8 +372,7 @@
 		B8D8EE5C27C5B6DA00277158 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8D8EE5F27C5B70D00277158 /* SignInView.swift */,
-				B8D8EE6627C5CD4E00277158 /* SignUpView.swift */,
+				B850FB8227C6688900776925 /* SignerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -562,9 +559,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
-				B8D8EE6727C5CD4E00277158 /* SignUpView.swift in Sources */,
+				B850FB8327C6688900776925 /* SignerView.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
-				B8D8EE6027C5B70D00277158 /* SignInView.swift in Sources */,
 				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

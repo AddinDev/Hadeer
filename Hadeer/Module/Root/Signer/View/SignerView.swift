@@ -1,5 +1,5 @@
 //
-//  SignInView.swift
+//  SignerView.swift
 //  Hadeer
 //
 //  Created by Addin Satria on 23/02/22.
@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct SignInView: View {
-  @State private var selection: String?
+struct SignerView: View {
+  @State private var isRegister = false
   var body: some View {
     ZStack {
-      NavigationLink(destination: SignUpView(), tag: "Register", selection: $selection) { EmptyView() }
       background
       content
         .background(
@@ -19,11 +18,14 @@ struct SignInView: View {
             .cornerRadius(10)
         )
         .padding(20)
+        .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
     }
+    .navigationTitle("")
+    .navigationBarHidden(true)
   }
 }
 
-extension SignInView {
+extension SignerView {
   
   private var background: some View {
     Image("SignerBackground")
@@ -35,7 +37,7 @@ extension SignInView {
   private var content: some View {
     VStack {
       VStack(spacing: 3) {
-        Text("Login")
+        Text(isRegister ? "Register" : "Login")
           .font(.title)
           .bold()
         Text("Please fill the form below to continue")
@@ -44,6 +46,25 @@ extension SignInView {
       .padding(.vertical, 30)
       VStack {
         VStack(alignment: .leading, spacing: 5) {
+          Text("Email")
+          TextField("Email", text: .constant(""))
+            .padding()
+            .background(
+              Color(.systemGray6)
+                .cornerRadius(10)
+            )
+        }
+        if isRegister {
+        VStack(alignment: .leading, spacing: 5) {
+          Text("Full Name")
+          TextField("Full Name", text: .constant(""))
+            .padding()
+            .background(
+              Color(.systemGray6)
+                .cornerRadius(10)
+            )
+        }
+        VStack(alignment: .leading, spacing: 5) {
           Text("Username")
           TextField("Username", text: .constant(""))
             .padding()
@@ -51,6 +72,7 @@ extension SignInView {
               Color(.systemGray6)
                 .cornerRadius(10)
             )
+        }
         }
         VStack(alignment: .leading, spacing: 5) {
           Text("Password")
@@ -61,22 +83,13 @@ extension SignInView {
                 .cornerRadius(10)
             )
         }
-        HStack {
-          spacer
-          Button(action: {
-            
-          }) {
-            Text("Forgot Password?")
-              .foregroundColor(.blue)
-          }
-        }
       }
       .padding(.vertical, 10)
       Button(action: {
         
       }) {
         HStack {
-          Text("Login")
+          Text(isRegister ? "Register" : "Login")
             .foregroundColor(.white)
             .font(.title2)
             .bold()
@@ -90,18 +103,18 @@ extension SignInView {
       }
       .padding(.vertical, 8)
       HStack {
-        Text("Don't have an account?")
+        Text(isRegister ? "Already have an account?" : "Don't have an account?")
         Button(action: {
-          self.selection = "Register"
+          self.isRegister.toggle()
         }) {
-          Text("Register")
+          Text(isRegister ? "Login" : "Register")
             .foregroundColor(.blue)
         }
       }
       .padding(.vertical, 8)
     }
-    .font(.custom("Poppins", size: 16))
     .padding()
+    .font(.custom("Poppins", size: 16))
   }
   
   private var spacer: some View {
@@ -110,8 +123,8 @@ extension SignInView {
   
 }
 
-struct SignInView_Previews: PreviewProvider {
-  static var previews: some View {
-    SignInView()
-  }
+struct SignerView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignerView()
+    }
 }
