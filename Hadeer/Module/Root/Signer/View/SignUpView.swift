@@ -1,5 +1,5 @@
 //
-//  SignInView.swift
+//  SignUpView.swift
 //  Hadeer
 //
 //  Created by Addin Satria on 23/02/22.
@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct SignInView: View {
-  @State private var selection: String?
+struct SignUpView: View {
+  @Environment(\.presentationMode) var presentationMode
   var body: some View {
     ZStack {
-      NavigationLink(destination: SignUpView(), tag: "Register", selection: $selection) { EmptyView() }
       background
       content
         .background(
@@ -20,10 +19,12 @@ struct SignInView: View {
         )
         .padding(20)
     }
+    .navigationTitle("")
+    .navigationBarHidden(true)
   }
 }
 
-extension SignInView {
+extension SignUpView {
   
   private var background: some View {
     Image("SignerBackground")
@@ -35,7 +36,7 @@ extension SignInView {
   private var content: some View {
     VStack {
       VStack(spacing: 3) {
-        Text("Login")
+        Text("Register")
           .font(.title)
           .bold()
         Text("Please fill the form below to continue")
@@ -61,14 +62,23 @@ extension SignInView {
                 .cornerRadius(10)
             )
         }
-        HStack {
-          spacer
-          Button(action: {
-            
-          }) {
-            Text("Forgot Password?")
-              .foregroundColor(.blue)
-          }
+        VStack(alignment: .leading, spacing: 5) {
+          Text("Password")
+          TextField("Password", text: .constant(""))
+            .padding()
+            .background(
+              Color(.systemGray6)
+                .cornerRadius(10)
+            )
+        }
+        VStack(alignment: .leading, spacing: 5) {
+          Text("Password")
+          TextField("Password", text: .constant(""))
+            .padding()
+            .background(
+              Color(.systemGray6)
+                .cornerRadius(10)
+            )
         }
       }
       .padding(.vertical, 10)
@@ -76,7 +86,7 @@ extension SignInView {
         
       }) {
         HStack {
-          Text("Login")
+          Text("Register")
             .foregroundColor(.white)
             .font(.title2)
             .bold()
@@ -90,11 +100,11 @@ extension SignInView {
       }
       .padding(.vertical, 8)
       HStack {
-        Text("Don't have an account?")
+        Text("Already have an account?")
         Button(action: {
-          self.selection = "Register"
+          self.presentationMode.wrappedValue.dismiss()
         }) {
-          Text("Register")
+          Text("Login")
             .foregroundColor(.blue)
         }
       }
@@ -110,8 +120,8 @@ extension SignInView {
   
 }
 
-struct SignInView_Previews: PreviewProvider {
-  static var previews: some View {
-    SignInView()
-  }
+struct SignUpView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignUpView()
+    }
 }
