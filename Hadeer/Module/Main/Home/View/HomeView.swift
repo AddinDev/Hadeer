@@ -9,18 +9,33 @@ import SwiftUI
 
 struct HomeView: View {
   var body: some View {
-    ScrollView {
-      content
+    
+    ZStack {
+      Color.white
+      ScrollView {
+        ZStack(alignment: .top) {
+          Color.cblue
+            .frame(height: 500)
+            .offset(x: 0, y: -500)
+          background
+            .offset(x: 0, y: -65)
+          LazyVStack {
+            content
+              .font(.poppins)
+          }
+        }
+      }
     }
+
   }
 }
 
 extension HomeView {
   
   private var background: some View {
-    Image("SignerBackground")
+    Image("SignerBackground Half")
       .resizable()
-      .scaledToFill()
+      .scaledToFit()
       .edgesIgnoringSafeArea(.all)
   }
   
@@ -35,15 +50,20 @@ extension HomeView {
           .resizable()
           .frame(width: 25, height: 25)
       }
+      .foregroundColor(.white)
       .padding(.vertical)
       .padding(.horizontal, 30)
       VStack(alignment: .leading) {
         Text("Selamat Pagi,")
+          .font(.title2)
         Text("Udinus Santhos")
           .font(.title)
           .bold()
       }
+      .foregroundColor(.white)
       .padding()
+      .padding(.leading, 20)
+      .padding(.bottom, 20)
       HStack {
         spacer
         CategoryBoxView(title: "Hadir", quantity: 200, color: .cgreen)
@@ -62,7 +82,6 @@ extension HomeView {
       .padding(.vertical, 20)
       spacer
     }
-    .font(.custom("Poppins", size: 16))
   }
   
   private var spacer: some View {
@@ -104,7 +123,7 @@ private struct TaskItemView: View {
   var body: some View {
     HStack(spacing: 0) {
       color
-        .frame(width: UIScreen.main.bounds.width / 11.5, height: 100)
+        .frame(width: UIScreen.main.bounds.width / 15, height: 100)
       Spacer()
       VStack {
         Text(title)

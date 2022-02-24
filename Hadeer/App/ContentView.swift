@@ -14,7 +14,16 @@ struct ContentView: View {
     var body: some View {
 //      NavigationView {
 //        TabView(selection: $selected) {
-          HomeView()
+      ZStack {
+        switch selected {
+          case 0:
+            SignerView(selected: $selected)
+          case 1:
+            HomeView()
+          default:
+            EmptyView()
+        }
+      }
 //          .navigationTitle("")
 //          .navigationBarHidden(true)
 //        }

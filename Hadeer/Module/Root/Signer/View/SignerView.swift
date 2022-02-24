@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct SignerView: View {
+//  @State private var route: String?
   @State private var isRegister = false
+  @Binding var selected: Int
+  
   var body: some View {
     ZStack {
       background
@@ -76,7 +79,7 @@ extension SignerView {
         }
         VStack(alignment: .leading, spacing: 5) {
           Text("Password")
-          TextField("Password", text: .constant(""))
+          SecureField("Password", text: .constant(""))
             .padding()
             .background(
               Color(.systemGray6)
@@ -86,7 +89,7 @@ extension SignerView {
       }
       .padding(.vertical, 10)
       Button(action: {
-        
+        selected = 1
       }) {
         HStack {
           Text(isRegister ? "Register" : "Login")
@@ -123,8 +126,8 @@ extension SignerView {
   
 }
 
-private struct SignerView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignerView()
-    }
-}
+// private struct SignerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignerView()
+//    }
+// }
