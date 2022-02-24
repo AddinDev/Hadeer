@@ -113,10 +113,14 @@ private struct TaskItemView: View {
           .foregroundColor(Color(.systemGray))
       }
       .padding()
-      Spacer()
+      Rectangle()
+        .frame(width: 1, height: 50)
+        .foregroundColor(Color(.systemGray6))
       Text(type)
         .padding()
-      Spacer()
+      Rectangle()
+        .frame(width: 1, height: 50)
+        .foregroundColor(Color(.systemGray6))
       VStack {
         Text(author)
         Text(desc)
@@ -132,6 +136,7 @@ private struct TaskItemView: View {
         .shadow(radius: 1)
     )
   }
+  
 }
 
 private struct HomeView_Previews: PreviewProvider {
