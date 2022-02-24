@@ -22,6 +22,7 @@
 		B867B8FA27C7208B008772E5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F927C7208B008772E5 /* Font.swift */; };
 		B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8FD27C72462008772E5 /* AppDelegate.swift */; };
 		B867B90027C72496008772E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8FF27C72496008772E5 /* SceneDelegate.swift */; };
+		B867B90427C72CF2008772E5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B90327C72CF2008772E5 /* DetailView.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
 		B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE6127C5BA8300277158 /* Poppins.ttf */; };
@@ -62,6 +63,7 @@
 		B867B8F927C7208B008772E5 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		B867B8FD27C72462008772E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B867B8FF27C72496008772E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B867B90327C72CF2008772E5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8D8EE6127C5BA8300277158 /* Poppins.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poppins.ttf; sourceTree = "<group>"; };
@@ -153,6 +155,22 @@
 			path = HadeerUITests;
 			sourceTree = "<group>";
 		};
+		B867B90127C72CDE008772E5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B867B90227C72CE5008772E5 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B867B90227C72CE5008772E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B867B90327C72CF2008772E5 /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B8D4D7A127C4FC1D00AEE076 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +215,7 @@
 		B8D4D7A527C4FC5C00AEE076 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B867B90127C72CDE008772E5 /* Detail */,
 				B8D4D7A727C4FC7300AEE076 /* Home */,
 			);
 			path = Main;
@@ -581,6 +600,7 @@
 				B867B8F427C70982008772E5 /* Colors.swift in Sources */,
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
+				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
 				B867B90027C72496008772E5 /* SceneDelegate.swift in Sources */,
 				B867B8FA27C7208B008772E5 /* Font.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,

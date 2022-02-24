@@ -26,7 +26,9 @@ struct HomeView: View {
         }
       }
     }
-
+    .navigationTitle("")
+    .navigationBarTitleDisplayMode(.inline)
+    .navigationBarHidden(true)
   }
 }
 
@@ -121,39 +123,44 @@ private struct TaskItemView: View {
   let type: String
   let color: Color
   var body: some View {
-    HStack(spacing: 0) {
-      color
-        .frame(width: UIScreen.main.bounds.width / 15, height: 100)
-      Spacer()
-      VStack {
-        Text(title)
-        Text(time)
-          .font(.callout)
-          .foregroundColor(Color(.systemGray))
-      }
-      .padding()
-      Rectangle()
-        .frame(width: 1, height: 50)
-        .foregroundColor(Color(.systemGray6))
-      Text(type)
+    NavigationLink(destination: DetailView()) {
+      HStack(spacing: 0) {
+        color
+          .frame(width: UIScreen.main.bounds.width / 15, height: 100)
+        Spacer()
+        VStack {
+          Text(title)
+            .foregroundColor(.black)
+          Text(time)
+            .font(.callout)
+            .foregroundColor(Color(.systemGray))
+        }
         .padding()
-      Rectangle()
-        .frame(width: 1, height: 50)
-        .foregroundColor(Color(.systemGray6))
-      VStack {
-        Text(author)
-        Text(desc)
-          .font(.callout)
-          .foregroundColor(Color(.systemGray))
+        Rectangle()
+          .frame(width: 1, height: 50)
+          .foregroundColor(Color(.systemGray6))
+        Text(type)
+          .foregroundColor(.black)
+          .padding()
+        Rectangle()
+          .frame(width: 1, height: 50)
+          .foregroundColor(Color(.systemGray6))
+        VStack {
+          Text(author)
+            .foregroundColor(.black)
+          Text(desc)
+            .font(.callout)
+            .foregroundColor(Color(.systemGray))
+        }
+        .padding()
+        
       }
-      .padding()
-      
+      .frame(minWidth: 0, maxWidth: .infinity)
+      .background(
+        Color.white
+          .shadow(radius: 1)
+      )
     }
-    .frame(minWidth: 0, maxWidth: .infinity)
-    .background(
-      Color.white
-        .shadow(radius: 1)
-    )
   }
   
 }
