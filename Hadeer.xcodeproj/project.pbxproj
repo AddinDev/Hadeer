@@ -16,6 +16,7 @@
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
 		B850FB8327C6688900776925 /* SignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850FB8227C6688900776925 /* SignerView.swift */; };
+		B867B8F427C70982008772E5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F327C70982008772E5 /* Extensions.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
 		B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE6127C5BA8300277158 /* Poppins.ttf */; };
@@ -50,6 +51,7 @@
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B850FB8227C6688900776925 /* SignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerView.swift; sourceTree = "<group>"; };
+		B867B8F327C70982008772E5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8D8EE6127C5BA8300277158 /* Poppins.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poppins.ttf; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		B8D4D7B127C4FD2A00AEE076 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				B867B8F327C70982008772E5 /* Extensions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B867B8F427C70982008772E5 /* Extensions.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,

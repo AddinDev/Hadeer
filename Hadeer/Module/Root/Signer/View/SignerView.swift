@@ -108,7 +108,7 @@ extension SignerView {
           self.isRegister.toggle()
         }) {
           Text(isRegister ? "Login" : "Register")
-            .foregroundColor(.blue)
+            .foregroundColor(.cblue)
         }
       }
       .padding(.vertical, 8)

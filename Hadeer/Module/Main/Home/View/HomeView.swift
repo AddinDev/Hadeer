@@ -36,7 +36,7 @@ extension HomeView {
           .frame(width: 25, height: 25)
       }
       .padding(.vertical)
-      .padding(.horizontal, 25)
+      .padding(.horizontal, 30)
       VStack(alignment: .leading) {
         Text("Selamat Pagi,")
         Text("Udinus Santhos")
@@ -46,20 +46,20 @@ extension HomeView {
       .padding()
       HStack {
         spacer
-        CategoryBoxView(title: "Hadir", quantity: 200, color: .green)
+        CategoryBoxView(title: "Hadir", quantity: 200, color: .cgreen)
         spacer
-        CategoryBoxView(title: "Alpha", quantity: 5, color: .red)
+        CategoryBoxView(title: "Alpha", quantity: 5, color: .cred)
         spacer
-        CategoryBoxView(title: "Izin", quantity: 200, color: .purple)
+        CategoryBoxView(title: "Izin", quantity: 200, color: .cpurple)
         spacer
       }
-      LazyVStack {
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .green)
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .green)
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .green)
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .green)
-        
+      LazyVStack(spacing: 10) {
+        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cgreen)
+        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cred)
+        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cpurple)
+        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cgreen)
       }
+      .padding(.vertical, 20)
       spacer
     }
     .font(.custom("Poppins", size: 16))
@@ -104,7 +104,7 @@ private struct TaskItemView: View {
   var body: some View {
     HStack(spacing: 0) {
       color
-        .frame(width: UIScreen.main.bounds.width / 12, height: 100)
+        .frame(width: UIScreen.main.bounds.width / 11.5, height: 100)
       Spacer()
       VStack {
         Text(title)
@@ -129,8 +129,8 @@ private struct TaskItemView: View {
     .frame(minWidth: 0, maxWidth: .infinity)
     .background(
       Color.white
+        .shadow(radius: 1)
     )
-    .shadow(radius: 1)
   }
 }
 
