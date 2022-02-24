@@ -26,6 +26,12 @@
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
 		B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE6127C5BA8300277158 /* Poppins.ttf */; };
+		B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9EF4327C758F4007D3F8C /* Api.swift */; };
+		B8E9EF4627C759D9007D3F8C /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9EF4527C759D9007D3F8C /* RemoteDataSource.swift */; };
+		B8E9EF4827C75BF6007D3F8C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9EF4727C75BF6007D3F8C /* Repository.swift */; };
+		B8E9EF4A27C75CCD007D3F8C /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9EF4927C75CCD007D3F8C /* HomeUseCase.swift */; };
+		B8E9EF4C27C75D2C007D3F8C /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9EF4B27C75D2C007D3F8C /* Injection.swift */; };
+		B8E9EF4E27C75E61007D3F8C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E9EF4D27C75E61007D3F8C /* HomePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +74,12 @@
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8D8EE6127C5BA8300277158 /* Poppins.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poppins.ttf; sourceTree = "<group>"; };
 		B8D8EE6327C5BAAE00277158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B8E9EF4327C758F4007D3F8C /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		B8E9EF4527C759D9007D3F8C /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		B8E9EF4727C75BF6007D3F8C /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		B8E9EF4927C75CCD007D3F8C /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		B8E9EF4B27C75D2C007D3F8C /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		B8E9EF4D27C75E61007D3F8C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +215,7 @@
 		B8D4D7A427C4FC4900AEE076 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B8D8EE4E27C5B1A800277158 /* Injection */,
+				B8D8EE4E27C5B1A800277158 /* DI */,
 				B8D4D7AB27C4FCF400AEE076 /* System Preference */,
 				B8D4D7AA27C4FCB700AEE076 /* Domain */,
 				B8D4D7A927C4FCB200AEE076 /* Data */,
@@ -281,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				B8D4D7AF27C4FD1800AEE076 /* Response */,
+				B8E9EF4527C759D9007D3F8C /* RemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -296,6 +309,7 @@
 		B8D4D7AE27C4FD0900AEE076 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B8E9EF4727C75BF6007D3F8C /* Repository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -328,6 +342,7 @@
 		B8D4D7B227C4FD3000AEE076 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B8E9EF4327C758F4007D3F8C /* Api.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -346,11 +361,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B8D8EE4E27C5B1A800277158 /* Injection */ = {
+		B8D8EE4E27C5B1A800277158 /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				B8E9EF4B27C75D2C007D3F8C /* Injection.swift */,
 			);
-			path = Injection;
+			path = DI;
 			sourceTree = "<group>";
 		};
 		B8D8EE4F27C5B1CE00277158 /* Signer */ = {
@@ -380,6 +396,7 @@
 		B8D8EE5227C5B21A00277158 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				B8E9EF4927C75CCD007D3F8C /* HomeUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -387,6 +404,7 @@
 		B8D8EE5327C5B2CB00277158 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B8E9EF4D27C75E61007D3F8C /* HomePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -601,9 +619,15 @@
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
+				B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */,
+				B8E9EF4827C75BF6007D3F8C /* Repository.swift in Sources */,
+				B8E9EF4627C759D9007D3F8C /* RemoteDataSource.swift in Sources */,
+				B8E9EF4A27C75CCD007D3F8C /* HomeUseCase.swift in Sources */,
 				B867B90027C72496008772E5 /* SceneDelegate.swift in Sources */,
+				B8E9EF4E27C75E61007D3F8C /* HomePresenter.swift in Sources */,
 				B867B8FA27C7208B008772E5 /* Font.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,
+				B8E9EF4C27C75D2C007D3F8C /* Injection.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
 				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
 			);

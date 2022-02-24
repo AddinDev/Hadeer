@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
   
+  @EnvironmentObject var homePresenter: HomePresenter
+  
   @State private var selected = 0
   
   var body: some View {
@@ -21,13 +23,12 @@ struct ContentView: View {
           SignerView(selected: $selected)
         case 1:
           NavigationView {
-            HomeView()
+            HomeView(presenter: homePresenter)
           }
         default:
           EmptyView()
       }
     }
-    
     
     //          .navigationTitle("")
     //          .navigationBarHidden(true)

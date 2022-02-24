@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+  @ObservedObject var presenter: HomePresenter
   var body: some View {
     
     ZStack {
@@ -165,8 +166,8 @@ private struct TaskItemView: View {
   
 }
 
-private struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    HomeView()
-  }
-}
+// private struct HomeView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    HomeView()
+//  }
+// }

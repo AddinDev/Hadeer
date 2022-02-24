@@ -11,9 +11,10 @@ import SwiftUI
 struct HadeerApp: App {
   @UIApplicationDelegateAdaptor var delegate: AppDelegate
   
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    
+    WindowGroup {
+      ContentView()
     }
+  }
 }
