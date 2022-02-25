@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LinkPreview
 
 struct DetailView: View {
   var body: some View {
@@ -16,7 +17,7 @@ struct DetailView: View {
 extension DetailView {
   
   private var content: some View {
-    ScrollView {
+    ScrollView(showsIndicators: false) {
       VStack(spacing: 0) {
         image
         bar
@@ -77,21 +78,29 @@ extension DetailView {
       .padding(.vertical, 20)
       .frame(width: UIScreen.main.bounds.width)
       devider
-      HStack {
-        Text("Materi: ")
-          .bold()
-        Text("[Google Docs](https://saweria.co/udinda)")
-        Spacer()
+      VStack {
+        HStack {
+          Text("Materi: ")
+            .bold()
+          Text("[Google Docs](https://saweria.co/udinda)")
+          Spacer()
+        }
+        LinkPreview(url: URL(string: "https://github.com/AddinDev"))
+          .frame(width: UIScreen.main.bounds.width / 1.2)
       }
       .padding()
       .padding(.vertical, 20)
       .frame(width: UIScreen.main.bounds.width)
       devider
+      VStack {
       HStack {
         Text("Absensi: ")
           .bold()
         Text("[Google Docs](https://apple.com)")
         Spacer()
+      }
+        LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))
+          .frame(width: UIScreen.main.bounds.width / 1.2)
       }
       .padding()
       .padding(.vertical, 20)
