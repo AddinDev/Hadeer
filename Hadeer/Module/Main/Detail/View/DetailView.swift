@@ -82,10 +82,10 @@ extension DetailView {
         HStack {
           Text("Materi: ")
             .bold()
-          Text("[Google Docs](https://saweria.co/udinda)")
+          Text("[Link](https://saweria.co/udinda)")
           Spacer()
         }
-        LinkPreview(url: URL(string: "https://github.com/AddinDev"))
+        LinkPreview(url: URL(string: "https://github.com/AddinDev/Komm"))
           .frame(width: UIScreen.main.bounds.width / 1.2)
       }
       .padding()
@@ -96,7 +96,7 @@ extension DetailView {
       HStack {
         Text("Absensi: ")
           .bold()
-        Text("[Google Docs](https://apple.com)")
+        Text("[Link](https://apple.com)")
         Spacer()
       }
         LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))

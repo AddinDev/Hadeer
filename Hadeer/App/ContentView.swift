@@ -16,20 +16,22 @@ struct ContentView: View {
   var body: some View {
     //      NavigationView {
     //        TabView(selection: $selected) {
-    
-    ZStack {
-      switch selected {
-        case 0:
-          SignerView(selected: $selected)
-        case 1:
-          NavigationView {
-            HomeView(presenter: homePresenter)
-          }
-        default:
-          EmptyView()
+    Group {
+      ZStack {
+        switch selected {
+          case 0:
+            SignerView(selected: $selected)
+          case 1:
+            NavigationView {
+              HomeView(presenter: homePresenter)
+            }
+          default:
+            EmptyView()
+        }
       }
     }
-    
+    .animation(.spring(response: 0.7, dampingFraction: 1, blendDuration: 1))
+
     //          .navigationTitle("")
     //          .navigationBarHidden(true)
     //        }
