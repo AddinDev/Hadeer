@@ -13,8 +13,16 @@ struct HadeerApp: App {
   
   var body: some Scene {
     
+    let homeUseCase = Injection.init().provideHome()
+    let homePresenter = HomePresenter(homeUseCase)
+    
+    let signerUseCase = Injection.init().provideSigner()
+    let signerPresenter = SignerPresenter(signerUseCase)
+    
     WindowGroup {
       ContentView()
+        .environmentObject(signerPresenter)
+        .environmentObject(homePresenter)
     }
   }
 }

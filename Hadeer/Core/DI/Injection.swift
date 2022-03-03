@@ -14,6 +14,10 @@ final class Injection {
     return Repository(remote: remote)
   }
   
+  func provideSigner() -> SignerUseCase {
+    return SignerInteractor(repository: provideRepository())
+  }
+  
   func provideHome() -> HomeUseCase {
     return HomeIntercator(repository: provideRepository())
   }

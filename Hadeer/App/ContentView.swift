@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   
+  @EnvironmentObject var signerPresenter: SignerPresenter
   @EnvironmentObject var homePresenter: HomePresenter
   
   @State private var selected = 0
@@ -20,7 +21,7 @@ struct ContentView: View {
       ZStack {
         switch selected {
           case 0:
-            SignerView(selected: $selected)
+            SignerView(presenter: signerPresenter, selected: $selected)
           case 1:
             NavigationView {
               HomeView(presenter: homePresenter)

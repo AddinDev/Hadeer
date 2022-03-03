@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 protocol RepositoryProtocol {
-  
+  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<Bool, Error>
+
 }
 
 final class Repository {
@@ -29,5 +30,9 @@ final class Repository {
 }
 
 extension Repository: RepositoryProtocol {
+  
+  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<Bool, Error> {
+    self.remote.signUp(username, email, phone, password)
+  }
   
 }

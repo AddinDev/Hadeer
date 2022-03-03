@@ -10,8 +10,9 @@ import Foundation
 struct Api {
   
   static let signIn = ""
-  static let signUp = ""
+  static let signUp = "http://localhost:3000/api/register"
   static let profile = ""
   static let tasks = ""
-  
+  static let serverKey = "B1smill4hUJIKOM"
+
 }

@@ -9,8 +9,14 @@ import SwiftUI
 
 struct SignerView: View {
 //  @State private var route: String?
+  @ObservedObject var presenter: SignerPresenter
   @State private var isRegister = false
   @Binding var selected: Int
+  
+  @State private var username = ""
+  @State private var email = ""
+  @State private var phone = ""
+  @State private var password = ""
   
   var body: some View {
     ZStack {
@@ -50,7 +56,9 @@ extension SignerView {
       VStack {
         VStack(alignment: .leading, spacing: 5) {
           Text("Email")
-          TextField("Email", text: .constant(""))
+          TextField("Email", text: $email)
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
             .padding()
             .background(
               Color(.systemGray6)
@@ -59,8 +67,10 @@ extension SignerView {
         }
         if isRegister {
         VStack(alignment: .leading, spacing: 5) {
-          Text("Full Name")
-          TextField("Full Name", text: .constant(""))
+          Text("Username")
+          TextField("Username", text: $username)
+            .autocapitalization(.none)
+            .disableAutocorrection(true)
             .padding()
             .background(
               Color(.systemGray6)
@@ -68,8 +78,9 @@ extension SignerView {
             )
         }
         VStack(alignment: .leading, spacing: 5) {
-          Text("Username")
-          TextField("Username", text: .constant(""))
+          Text("Phone")
+          TextField("Phone", text: $phone)
+            .keyboardType(.phonePad)
             .padding()
             .background(
               Color(.systemGray6)
@@ -79,7 +90,8 @@ extension SignerView {
         }
         VStack(alignment: .leading, spacing: 5) {
           Text("Password")
-          SecureField("Password", text: .constant(""))
+          SecureField("Password", text: $password)
+            .textInputAutocapitalization(.none)
             .padding()
             .background(
               Color(.systemGray6)
@@ -89,7 +101,11 @@ extension SignerView {
       }
       .padding(.vertical, 10)
       Button(action: {
-        selected = 1
+        if isRegister {
+          presenter.signUp(email, username, phone, password)
+        } else {
+          print("Login")
+        }
       }) {
         HStack {
           Text(isRegister ? "Register" : "Login")

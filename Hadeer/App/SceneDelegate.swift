@@ -23,7 +23,11 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
     let homeUseCase = Injection.init().provideHome()
     let homePresenter = HomePresenter(homeUseCase)
     
+    let signerUseCase = Injection.init().provideSigner()
+    let signerPresenter = SignerPresenter(signerUseCase)
+    
     let contentView = ContentView()
+      .environmentObject(signerPresenter)
       .environmentObject(homePresenter)
 
     // Use a UIHostingController as window root view controller.

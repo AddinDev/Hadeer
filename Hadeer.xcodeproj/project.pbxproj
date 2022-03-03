@@ -16,6 +16,12 @@
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
 		B81CF58A27C867C30057080A /* LinkPreview in Frameworks */ = {isa = PBXBuildFile; productRef = B81CF58927C867C30057080A /* LinkPreview */; };
+		B84070C127CF1EAE006A2AEF /* DefaultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */; };
+		B84070C327CF21B0006A2AEF /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C227CF21B0006A2AEF /* Encode.swift */; };
+		B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C527CF2255006A2AEF /* SignInAuthorizationModel.swift */; };
+		B84070C827CF225F006A2AEF /* SignUpAuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C727CF225F006A2AEF /* SignUpAuthorizationModel.swift */; };
+		B84070CA27CF25D8006A2AEF /* SignerUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C927CF25D8006A2AEF /* SignerUserCase.swift */; };
+		B84070CC27CF2675006A2AEF /* SignerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070CB27CF2675006A2AEF /* SignerPresenter.swift */; };
 		B850FB8327C6688900776925 /* SignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850FB8227C6688900776925 /* SignerView.swift */; };
 		B867B8F427C70982008772E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F327C70982008772E5 /* Colors.swift */; };
 		B867B8F627C71A3D008772E5 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F527C71A3D008772E5 /* HostingController.swift */; };
@@ -63,6 +69,12 @@
 		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponse.swift; sourceTree = "<group>"; };
+		B84070C227CF21B0006A2AEF /* Encode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encode.swift; sourceTree = "<group>"; };
+		B84070C527CF2255006A2AEF /* SignInAuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAuthorizationModel.swift; sourceTree = "<group>"; };
+		B84070C727CF225F006A2AEF /* SignUpAuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAuthorizationModel.swift; sourceTree = "<group>"; };
+		B84070C927CF25D8006A2AEF /* SignerUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerUserCase.swift; sourceTree = "<group>"; };
+		B84070CB27CF2675006A2AEF /* SignerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerPresenter.swift; sourceTree = "<group>"; };
 		B850FB8227C6688900776925 /* SignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerView.swift; sourceTree = "<group>"; };
 		B867B8F327C70982008772E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B867B8F527C71A3D008772E5 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
@@ -167,6 +179,15 @@
 				B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */,
 			);
 			path = HadeerUITests;
+			sourceTree = "<group>";
+		};
+		B84070C427CF2234006A2AEF /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B84070C527CF2255006A2AEF /* SignInAuthorizationModel.swift */,
+				B84070C727CF225F006A2AEF /* SignUpAuthorizationModel.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		B867B90127C72CDE008772E5 /* Detail */ = {
@@ -294,8 +315,9 @@
 		B8D4D7AC27C4FD0300AEE076 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				B8D4D7AF27C4FD1800AEE076 /* Response */,
 				B8E9EF4527C759D9007D3F8C /* RemoteDataSource.swift */,
+				B84070C427CF2234006A2AEF /* Authorization */,
+				B8D4D7AF27C4FD1800AEE076 /* Response */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -319,6 +341,7 @@
 		B8D4D7AF27C4FD1800AEE076 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -337,6 +360,7 @@
 				B867B8F527C71A3D008772E5 /* HostingController.swift */,
 				B867B8F727C71A55008772E5 /* NavigationBarModifier.swift */,
 				B867B8F927C7208B008772E5 /* Font.swift */,
+				B84070C227CF21B0006A2AEF /* Encode.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -399,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				B8E9EF4927C75CCD007D3F8C /* HomeUseCase.swift */,
+				B84070C927CF25D8006A2AEF /* SignerUserCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -437,6 +462,7 @@
 		B8D8EE5E27C5B70200277158 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B84070CB27CF2675006A2AEF /* SignerPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -617,20 +643,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84070CC27CF2675006A2AEF /* SignerPresenter.swift in Sources */,
 				B867B8F627C71A3D008772E5 /* HostingController.swift in Sources */,
 				B867B8F827C71A55008772E5 /* NavigationBarModifier.swift in Sources */,
 				B867B8F427C70982008772E5 /* Colors.swift in Sources */,
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
+				B84070C127CF1EAE006A2AEF /* DefaultResponse.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
 				B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */,
 				B8E9EF4827C75BF6007D3F8C /* Repository.swift in Sources */,
 				B8E9EF4627C759D9007D3F8C /* RemoteDataSource.swift in Sources */,
 				B8E9EF4A27C75CCD007D3F8C /* HomeUseCase.swift in Sources */,
+				B84070C327CF21B0006A2AEF /* Encode.swift in Sources */,
 				B867B90027C72496008772E5 /* SceneDelegate.swift in Sources */,
+				B84070C827CF225F006A2AEF /* SignUpAuthorizationModel.swift in Sources */,
 				B8E9EF4E27C75E61007D3F8C /* HomePresenter.swift in Sources */,
 				B867B8FA27C7208B008772E5 /* Font.swift in Sources */,
+				B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,
+				B84070CA27CF25D8006A2AEF /* SignerUserCase.swift in Sources */,
 				B8E9EF4C27C75D2C007D3F8C /* Injection.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
 				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
