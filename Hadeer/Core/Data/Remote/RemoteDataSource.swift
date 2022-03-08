@@ -10,8 +10,8 @@ import Combine
 import Alamofire
 
 protocol RemoteDataSourceProtocol {
-  //  func signIn(_ email: String, _ password: String) -> AnyPublisher<Bool, Error>
   func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
+  func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   //  func fetchTasks(_ username: String) -> AnyPublisher<Bool, Error>
   
 }
@@ -56,23 +56,32 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     .eraseToAnyPublisher()
   }
   
-  //  func signIn(_ email: String, _ password: String) -> AnyPublisher<Bool, Error> {
-  //    return Future<Bool, Error> { completion in
-  //      guard let url = URL(string: Api.signIn) { else return }
-  //      AF.request(Api.signUp, method: .post, headers: [.authorization("")])
-  //        .validate()
-  //        .responseDecodable(of: ) { response in
-  //          switch response.result {
-  //            case .success(let value):
-  //              completion(.success(value))
-  //            case .failure(let error):
-  //              completion(.failure(error))
-  //          }
-  //        }
-  //    }
-  //    .eraseToAnyPublisher()
-  //
-  //  }
-  
+  func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
+    return Future<DefaultResponse, Error> { completion in
+      guard let url = URL(string: Api.signIn) else { return }
+      let auth = SignInAuthorizationModel(serverkey: Api.serverKey,
+                                          username: username,
+                                          password: password).encryptAndEncode()
+      AF.request(url, method: .post, headers: [.authorization(auth)])
+        .validate()
+        .responseDecodable(of: DefaultResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              switch value.status_code {
+                case 200:
+                  completion(.success(value))
+                default:
+                  print("TASKERROR HTTP STATUS: \(value.status)")
+                  completion(.failure(URLError.custom(value.message ?? "null")))
+              }
+            case .failure(let error):
+              print("TASKERROR: \(error.localizedDescription)")
+              completion(.failure(error))
+          }
+        }
+    }
+    .eraseToAnyPublisher()
+    
+  }
   
 }

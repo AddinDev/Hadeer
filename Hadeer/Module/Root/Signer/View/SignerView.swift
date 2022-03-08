@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignerView: View {
-//  @State private var route: String?
+  //  @State private var route: String?
   @ObservedObject var presenter: SignerPresenter
   @State private var isRegister = false
   @Binding var selected: Int
@@ -30,8 +30,8 @@ struct SignerView: View {
         .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
       if presenter.isLoading {
         Color.black.opacity(0.6).edgesIgnoringSafeArea(.all)
-      ProgressView()
-        .progressViewStyle(CircularProgressViewStyle())
+        ProgressView()
+          .progressViewStyle(CircularProgressViewStyle())
       }
     }
     .navigationTitle("")
@@ -58,40 +58,40 @@ extension SignerView {
           .foregroundColor(Color(.systemGray))
       }
       .padding(.vertical, 30)
-      VStack {
-        VStack(alignment: .leading, spacing: 5) {
-          Text("Email")
-          TextField("Email", text: $email)
-            .autocapitalization(.none)
-            .disableAutocorrection(true)
-            .padding()
-            .background(
-              Color(.systemGray6)
-                .cornerRadius(10)
-            )
-        }
+      VStack(alignment: .leading, spacing: 5) {
+        Text("Username")
+        TextField("Username", text: $username)
+          .autocapitalization(.none)
+          .disableAutocorrection(true)
+          .padding()
+          .background(
+            Color(.systemGray6)
+              .cornerRadius(10)
+          )
         if isRegister {
-        VStack(alignment: .leading, spacing: 5) {
-          Text("Username")
-          TextField("Username", text: $username)
-            .autocapitalization(.none)
-            .disableAutocorrection(true)
-            .padding()
-            .background(
-              Color(.systemGray6)
-                .cornerRadius(10)
-            )
-        }
-        VStack(alignment: .leading, spacing: 5) {
-          Text("Phone")
-          TextField("Phone", text: $phone)
-            .keyboardType(.phonePad)
-            .padding()
-            .background(
-              Color(.systemGray6)
-                .cornerRadius(10)
-            )
-        }
+          VStack {
+            VStack(alignment: .leading, spacing: 5) {
+              Text("Email")
+              TextField("Email", text: $email)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+                .padding()
+                .background(
+                  Color(.systemGray6)
+                    .cornerRadius(10)
+                )
+            }
+          }
+          VStack(alignment: .leading, spacing: 5) {
+            Text("Phone")
+            TextField("Phone", text: $phone)
+              .keyboardType(.phonePad)
+              .padding()
+              .background(
+                Color(.systemGray6)
+                  .cornerRadius(10)
+              )
+          }
         }
         VStack(alignment: .leading, spacing: 5) {
           Text("Password")
@@ -109,7 +109,7 @@ extension SignerView {
         if isRegister {
           presenter.signUp(email, username, phone, password)
         } else {
-          print("Login")
+          presenter.signIn(username, password)
         }
       }) {
         HStack {

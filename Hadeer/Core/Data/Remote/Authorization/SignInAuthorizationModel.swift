@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct SignInAuthorizationModel: Encodable {
+  let serverkey: String
+  let username: String
+  let password: String
+}

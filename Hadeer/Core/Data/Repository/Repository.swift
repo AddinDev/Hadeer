@@ -10,6 +10,7 @@ import Combine
 
 protocol RepositoryProtocol {
   func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
+  func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
 
 }
 
@@ -33,6 +34,10 @@ extension Repository: RepositoryProtocol {
   
   func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
     self.remote.signUp(username, email, phone, password)
+  }
+  
+  func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
+    self.remote.signIn(username, password)
   }
   
 }

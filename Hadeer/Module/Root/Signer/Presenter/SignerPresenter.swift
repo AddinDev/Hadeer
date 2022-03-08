@@ -49,25 +49,25 @@ extension SignerPresenter {
   }
   
   func signIn(_ username: String, _ password: String) {
-//    isLoading = true
-//    useCase.signIn
-//      .receive(on: RunLoop.main)
-//      .sink { completion in
-//        switch completion {
-//          case .finished:
-//            self.isLoading = false
-//            self.isError = false
-//            self.errorMessage = ""
-//          case .failure(let error):
-//            self.isLoading = false
-//            self.isError = true
-//            self.errorMessage = error.localizedDescription
-//            print(error.localizedDescription)
-//        }
-//      } receiveValue: { value in
-//        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
-//      }
-//      .store(in: &cancellables)
+    isLoading = true
+    useCase.signIn(username, password)
+      .receive(on: RunLoop.main)
+      .sink { completion in
+        switch completion {
+          case .finished:
+            self.isLoading = false
+            self.isError = false
+            self.errorMessage = ""
+          case .failure(let error):
+            self.isLoading = false
+            self.isError = true
+            self.errorMessage = error.localizedDescription
+            print(error.localizedDescription)
+        }
+      } receiveValue: { value in
+        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
+      }
+      .store(in: &cancellables)
   }
   
 }
