@@ -28,6 +28,11 @@ struct SignerView: View {
         )
         .padding(20)
         .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
+      if presenter.isLoading {
+        Color.black.opacity(0.6).edgesIgnoringSafeArea(.all)
+      ProgressView()
+        .progressViewStyle(CircularProgressViewStyle())
+      }
     }
     .navigationTitle("")
     .navigationBarHidden(true)

@@ -16,6 +16,7 @@
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
 		B81CF58A27C867C30057080A /* LinkPreview in Frameworks */ = {isa = PBXBuildFile; productRef = B81CF58927C867C30057080A /* LinkPreview */; };
+		B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8334C3D27D6EAD900A3B982 /* CustomError.swift */; };
 		B84070C127CF1EAE006A2AEF /* DefaultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */; };
 		B84070C327CF21B0006A2AEF /* Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C227CF21B0006A2AEF /* Encode.swift */; };
 		B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C527CF2255006A2AEF /* SignInAuthorizationModel.swift */; };
@@ -69,6 +70,7 @@
 		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8334C3D27D6EAD900A3B982 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultResponse.swift; sourceTree = "<group>"; };
 		B84070C227CF21B0006A2AEF /* Encode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encode.swift; sourceTree = "<group>"; };
 		B84070C527CF2255006A2AEF /* SignInAuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAuthorizationModel.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				B867B8F727C71A55008772E5 /* NavigationBarModifier.swift */,
 				B867B8F927C7208B008772E5 /* Font.swift */,
 				B84070C227CF21B0006A2AEF /* Encode.swift */,
+				B8334C3D27D6EAD900A3B982 /* CustomError.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				B84070C827CF225F006A2AEF /* SignUpAuthorizationModel.swift in Sources */,
 				B8E9EF4E27C75E61007D3F8C /* HomePresenter.swift in Sources */,
 				B867B8FA27C7208B008772E5 /* Font.swift in Sources */,
+				B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */,
 				B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,
 				B84070CA27CF25D8006A2AEF /* SignerUserCase.swift in Sources */,

@@ -22,6 +22,10 @@ class SignerPresenter: ObservableObject {
     self.useCase = useCase
   }
   
+}
+
+extension SignerPresenter {
+  
   func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) {
     isLoading = true
     useCase.signUp(username, email, phone, password)
@@ -36,11 +40,34 @@ class SignerPresenter: ObservableObject {
             self.isLoading = false
             self.isError = true
             self.errorMessage = error.localizedDescription
+            print(error.localizedDescription)
         }
       } receiveValue: { value in
-        print("TASK LOGIN VALUE: \(value)")
+        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
       }
       .store(in: &cancellables)
+  }
+  
+  func signIn(_ username: String, _ password: String) {
+//    isLoading = true
+//    useCase.signIn
+//      .receive(on: RunLoop.main)
+//      .sink { completion in
+//        switch completion {
+//          case .finished:
+//            self.isLoading = false
+//            self.isError = false
+//            self.errorMessage = ""
+//          case .failure(let error):
+//            self.isLoading = false
+//            self.isError = true
+//            self.errorMessage = error.localizedDescription
+//            print(error.localizedDescription)
+//        }
+//      } receiveValue: { value in
+//        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
+//      }
+//      .store(in: &cancellables)
   }
   
 }

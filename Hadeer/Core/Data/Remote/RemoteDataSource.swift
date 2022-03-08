@@ -11,7 +11,7 @@ import Alamofire
 
 protocol RemoteDataSourceProtocol {
   //  func signIn(_ email: String, _ password: String) -> AnyPublisher<Bool, Error>
-  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<Bool, Error>
+  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   //  func fetchTasks(_ username: String) -> AnyPublisher<Bool, Error>
   
 }
@@ -26,9 +26,9 @@ final class RemoteDataSource {
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
   
-  func signUp(_ email: String, _ username: String, _ phone: String, _ password: String) -> AnyPublisher<Bool, Error> {
+  func signUp(_ email: String, _ username: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
     print("TASK REGISTER")
-    return Future<Bool, Error> { completion in
+    return Future<DefaultResponse, Error> { completion in
       guard let url = URL(string: Api.signUp) else { return }
       let auth = SignUpAuthorizationModel(serverkey: Api.serverKey,
                                           username: username,
@@ -42,12 +42,13 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
             case .success(let value):
               switch value.status_code {
                 case 200:
-                  completion(.success(true))
+                  completion(.success(value))
                 default:
-                  completion(.success(false))
+                  print("TASKERROR HTTP STATUS: \(value.status)")
+                  completion(.failure(URLError.custom(value.message ?? "null")))
               }
             case .failure(let error):
-              print(error.localizedDescription)
+              print("TASKERROR: \(error.localizedDescription)")
               completion(.failure(error))
           }
         }

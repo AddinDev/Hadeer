@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol SignerUseCase {
-  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<Bool, Error>
+  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
 
 }
 
@@ -24,7 +24,7 @@ class SignerInteractor {
 }
 
 extension SignerInteractor: SignerUseCase {
-  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<Bool, Error> {
+  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
     self.repository.signUp(username, email, phone, password)
   }
 
