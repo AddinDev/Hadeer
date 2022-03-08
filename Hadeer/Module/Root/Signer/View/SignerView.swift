@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SignerView: View {
   //  @State private var route: String?
+  @EnvironmentObject var authentication: Authentication
   @ObservedObject var presenter: SignerPresenter
   @State private var isRegister = false
-  @Binding var selected: Int
   
   @State private var username = ""
   @State private var email = ""
@@ -107,9 +107,13 @@ extension SignerView {
       .padding(.vertical, 10)
       Button(action: {
         if isRegister {
-          presenter.signUp(email, username, phone, password)
+          presenter.signUp(email, username, phone, password) {
+            authentication.signIn()
+          }
         } else {
-          presenter.signIn(username, password)
+          presenter.signIn(username, password) {
+            authentication.signIn()
+          }
         }
       }) {
         HStack {

@@ -26,7 +26,7 @@ class SignerPresenter: ObservableObject {
 
 extension SignerPresenter {
   
-  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) {
+  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String, action: @escaping () -> Void) {
     isLoading = true
     useCase.signUp(username, email, phone, password)
       .receive(on: RunLoop.main)
@@ -36,6 +36,7 @@ extension SignerPresenter {
             self.isLoading = false
             self.isError = false
             self.errorMessage = ""
+            action()
           case .failure(let error):
             self.isLoading = false
             self.isError = true
@@ -48,7 +49,7 @@ extension SignerPresenter {
       .store(in: &cancellables)
   }
   
-  func signIn(_ username: String, _ password: String) {
+  func signIn(_ username: String, _ password: String, action: @escaping () -> Void) {
     isLoading = true
     useCase.signIn(username, password)
       .receive(on: RunLoop.main)
@@ -58,6 +59,7 @@ extension SignerPresenter {
             self.isLoading = false
             self.isError = false
             self.errorMessage = ""
+            action()
           case .failure(let error):
             self.isLoading = false
             self.isError = true

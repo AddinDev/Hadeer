@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
   
+  @EnvironmentObject var authentication: Authentication
+
   @EnvironmentObject var signerPresenter: SignerPresenter
   @EnvironmentObject var homePresenter: HomePresenter
   
@@ -19,15 +21,10 @@ struct ContentView: View {
     //        TabView(selection: $selected) {
     Group {
       ZStack {
-        switch selected {
-          case 0:
-            SignerView(presenter: signerPresenter, selected: $selected)
-          case 1:
-            NavigationView {
-              HomeView(presenter: homePresenter)
-            }
-          default:
-            EmptyView()
+        if authentication.hasSignedIn {
+          HomeView(presenter: homePresenter)
+        } else {
+          SignerView(presenter: signerPresenter)
         }
       }
     }
