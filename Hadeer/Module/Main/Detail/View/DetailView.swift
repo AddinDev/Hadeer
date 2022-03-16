@@ -9,6 +9,7 @@ import SwiftUI
 import LinkPreview
 
 struct DetailView: View {
+  @StateObject var presenter: DetailPresenter
   var body: some View {
     content
   }
@@ -42,21 +43,21 @@ extension DetailView {
   private var status: some View {
     HStack {
       VStack {
-        Text("Matematika")
-        Text("Algoritma")
+        Text(presenter.task.nama)
+        Text(presenter.task.materi)
       }
       .padding()
       Rectangle()
         .frame(width: 1, height: 50)
         .foregroundColor(Color(.systemGray6))
-      Text("Bapak Udiono")
+      Text(presenter.task.guruID)
         .padding()
       Rectangle()
         .frame(width: 1, height: 50)
         .foregroundColor(Color(.systemGray6))
       VStack {
         Text("Hadir")
-        Text("5-10-2020")
+        Text(presenter.task.waktu)
           .font(.callout)
           .foregroundColor(Color(.systemGray))
       }
@@ -125,8 +126,8 @@ extension DetailView {
   
 }
 
-struct DetailView_Previews: PreviewProvider {
-  static var previews: some View {
-    DetailView()
-  }
-}
+// struct DetailView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    DetailView()
+//  }
+// }

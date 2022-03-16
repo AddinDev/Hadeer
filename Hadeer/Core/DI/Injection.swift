@@ -22,4 +22,8 @@ final class Injection {
     return HomeIntercator(repository: provideRepository())
   }
   
+  func provideDetail(task: TaskModel) -> DetailUseCase {
+    return DetailInteractor(repository: provideRepository(), task: task)
+  }
+  
 }

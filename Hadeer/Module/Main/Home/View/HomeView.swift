@@ -130,7 +130,9 @@ extension HomeView {
       } else {
         LazyVStack(spacing: 10) {
           ForEach(presenter.tasks) { task in
-            TaskItemView(title: task.nama, time: task.waktu, desc: task.materi, author: task.guruID, type: task.kelas, color: .cgreen)
+            presenter.linkBuilder(for: task) {
+              TaskItemView(task: task, type: task.kelas, color: .cgreen)
+            }
           }
         }
         .padding(.vertical, 20)
@@ -169,22 +171,18 @@ private struct CategoryBoxView: View {
 }
 
 private struct TaskItemView: View {
-  let title: String
-  let time: String
-  let desc: String
-  let author: String
+  let task: TaskModel
   let type: String
   let color: Color
   var body: some View {
-    NavigationLink(destination: DetailView()) {
       HStack(spacing: 0) {
         color
           .frame(width: UIScreen.main.bounds.width / 15, height: 100)
         Spacer()
         VStack {
-          Text(title)
+          Text(task.nama)
             .foregroundColor(.black)
-          Text(time)
+          Text(task.waktu)
             .font(.callout)
             .foregroundColor(Color(.systemGray))
         }
@@ -200,9 +198,9 @@ private struct TaskItemView: View {
           .frame(width: 1, height: 50)
           .foregroundColor(Color(.systemGray6))
         VStack {
-          Text(author)
+          Text(task.guruID)
             .foregroundColor(.black)
-          Text(desc)
+          Text(task.materi)
             .font(.callout)
             .foregroundColor(Color(.systemGray))
         }
@@ -215,7 +213,6 @@ private struct TaskItemView: View {
           .shadow(radius: 1)
       )
     }
-  }
   
 }
 

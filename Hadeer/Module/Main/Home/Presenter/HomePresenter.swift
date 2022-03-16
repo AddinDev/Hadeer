@@ -11,13 +11,15 @@ import Combine
 class HomePresenter: ObservableObject {
   
   @Published var tasks: TaskModels = []
-
+  
   @Published var isLoading = false
   @Published var isError = false
   @Published var errorMessage = ""
   
   private var cancellables: Set<AnyCancellable> = []
-
+  
+  private let router = HomeRouter()
+  
   let useCase: HomeUseCase
   
   init(_ useCase: HomeUseCase) {
@@ -43,6 +45,10 @@ class HomePresenter: ObservableObject {
         self.tasks = tasks
       }
       .store(in: &cancellables)
+  }
+  
+  func linkBuilder<Content: View>(for task: TaskModel, @ViewBuilder content: () -> Content) -> some View {
+    NavigationLink(destination: router.makeDetailView(for: task)) { content() }
   }
   
 }

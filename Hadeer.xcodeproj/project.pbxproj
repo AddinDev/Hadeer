@@ -36,6 +36,9 @@
 		B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8FD27C72462008772E5 /* AppDelegate.swift */; };
 		B867B90027C72496008772E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8FF27C72496008772E5 /* SceneDelegate.swift */; };
 		B867B90427C72CF2008772E5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B90327C72CF2008772E5 /* DetailView.swift */; };
+		B87724B227E179050081EA3F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B127E179050081EA3F /* HomeRouter.swift */; };
+		B87724B427E1797E0081EA3F /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B327E1797E0081EA3F /* DetailUseCase.swift */; };
+		B87724B827E179F50081EA3F /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B727E179F50081EA3F /* DetailPresenter.swift */; };
 		B89972E627E16F9A00E419D7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89972E527E16F9A00E419D7 /* String.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
@@ -96,6 +99,9 @@
 		B867B8FD27C72462008772E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B867B8FF27C72496008772E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B867B90327C72CF2008772E5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B87724B127E179050081EA3F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		B87724B327E1797E0081EA3F /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
+		B87724B727E179F50081EA3F /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		B89972E527E16F9A00E419D7 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 		B867B90127C72CDE008772E5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B87724B527E179E30081EA3F /* Presenter */,
 				B867B90227C72CE5008772E5 /* View */,
 			);
 			path = Detail;
@@ -227,6 +234,14 @@
 				B867B90327C72CF2008772E5 /* DetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B87724B527E179E30081EA3F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B87724B727E179F50081EA3F /* DetailPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		B8D4D7A127C4FC1D00AEE076 /* App */ = {
@@ -453,6 +468,7 @@
 			children = (
 				B8E9EF4927C75CCD007D3F8C /* HomeUseCase.swift */,
 				B84070C927CF25D8006A2AEF /* SignerUserCase.swift */,
+				B87724B327E1797E0081EA3F /* DetailUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -476,6 +492,7 @@
 		B8D8EE5527C5B2E400277158 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				B87724B127E179050081EA3F /* HomeRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -682,8 +699,10 @@
 				B85051F027DAE55C00483346 /* TaskModel.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
+				B87724B427E1797E0081EA3F /* DetailUseCase.swift in Sources */,
 				B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */,
 				B8E9EF4827C75BF6007D3F8C /* Repository.swift in Sources */,
+				B87724B227E179050081EA3F /* HomeRouter.swift in Sources */,
 				B89972E627E16F9A00E419D7 /* String.swift in Sources */,
 				B8E9EF4627C759D9007D3F8C /* RemoteDataSource.swift in Sources */,
 				B8E9EF4A27C75CCD007D3F8C /* HomeUseCase.swift in Sources */,
@@ -696,6 +715,7 @@
 				B85051EE27DAE51500483346 /* TaskResponse.swift in Sources */,
 				B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */,
 				B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */,
+				B87724B827E179F50081EA3F /* DetailPresenter.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,
 				B84070CA27CF25D8006A2AEF /* SignerUserCase.swift in Sources */,
 				B8334C4327D6F34F00A3B982 /* UserAuthentication.swift in Sources */,
