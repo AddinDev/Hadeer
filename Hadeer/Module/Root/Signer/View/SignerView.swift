@@ -11,11 +11,8 @@ struct SignerView: View {
   //  @State private var route: String?
   @EnvironmentObject var authentication: Authentication
   @ObservedObject var presenter: SignerPresenter
-  @State private var isRegister = false
   
   @State private var username = ""
-  @State private var email = ""
-  @State private var phone = ""
   @State private var password = ""
   
   var body: some View {
@@ -48,10 +45,19 @@ extension SignerView {
       .edgesIgnoringSafeArea(.all)
   }
   
+  private var errorIndicator: some View {
+    VStack {
+      Text("ERROR")
+      Text(presenter.errorMessage)
+    }
+    .foregroundColor(.red)
+    .padding(.vertical, 8)
+  }
+  
   private var content: some View {
     VStack {
       VStack(spacing: 3) {
-        Text(isRegister ? "Register" : "Login")
+        Text("Login")
           .font(.title)
           .bold()
         Text("Please fill the form below to continue")
@@ -68,31 +74,6 @@ extension SignerView {
             Color(.systemGray6)
               .cornerRadius(10)
           )
-        if isRegister {
-          VStack {
-            VStack(alignment: .leading, spacing: 5) {
-              Text("Email")
-              TextField("Email", text: $email)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-                .padding()
-                .background(
-                  Color(.systemGray6)
-                    .cornerRadius(10)
-                )
-            }
-          }
-          VStack(alignment: .leading, spacing: 5) {
-            Text("Phone")
-            TextField("Phone", text: $phone)
-              .keyboardType(.phonePad)
-              .padding()
-              .background(
-                Color(.systemGray6)
-                  .cornerRadius(10)
-              )
-          }
-        }
         VStack(alignment: .leading, spacing: 5) {
           Text("Password")
           SecureField("Password", text: $password)
@@ -106,18 +87,12 @@ extension SignerView {
       }
       .padding(.vertical, 10)
       Button(action: {
-        if isRegister {
-          presenter.signUp(email, username, phone, password) {
-            authentication.signIn()
-          }
-        } else {
           presenter.signIn(username, password) {
             authentication.signIn()
           }
-        }
       }) {
         HStack {
-          Text(isRegister ? "Register" : "Login")
+          Text("Login")
             .foregroundColor(.white)
             .font(.title2)
             .bold()
@@ -130,16 +105,9 @@ extension SignerView {
         )
       }
       .padding(.vertical, 8)
-      HStack {
-        Text(isRegister ? "Already have an account?" : "Don't have an account?")
-        Button(action: {
-          self.isRegister.toggle()
-        }) {
-          Text(isRegister ? "Login" : "Register")
-            .foregroundColor(.cblue)
-        }
+      if presenter.isError {
+        errorIndicator
       }
-      .padding(.vertical, 8)
     }
     .padding()
     .font(.custom("Poppins", size: 16))
