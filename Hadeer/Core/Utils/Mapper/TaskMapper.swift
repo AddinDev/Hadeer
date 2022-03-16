@@ -15,7 +15,7 @@ struct TaskMapper {
                 nama: response.nama,
                 kelas: response.kelas,
                 guruID: response.guruID,
-                waktu: response.waktu,
+                waktu: response.waktu.formatToDate(),
                 materi: response.materi)
     }
   }

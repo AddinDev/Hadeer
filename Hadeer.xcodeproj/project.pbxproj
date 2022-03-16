@@ -36,6 +36,7 @@
 		B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8FD27C72462008772E5 /* AppDelegate.swift */; };
 		B867B90027C72496008772E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8FF27C72496008772E5 /* SceneDelegate.swift */; };
 		B867B90427C72CF2008772E5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B90327C72CF2008772E5 /* DetailView.swift */; };
+		B89972E627E16F9A00E419D7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89972E527E16F9A00E419D7 /* String.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
 		B8D8EE6227C5BA8300277158 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE6127C5BA8300277158 /* Poppins.ttf */; };
@@ -95,6 +96,7 @@
 		B867B8FD27C72462008772E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B867B8FF27C72496008772E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B867B90327C72CF2008772E5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B89972E527E16F9A00E419D7 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B8D8EE6127C5BA8300277158 /* Poppins.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poppins.ttf; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				B867B8F927C7208B008772E5 /* Font.swift */,
 				B84070C227CF21B0006A2AEF /* Encode.swift */,
 				B8334C3D27D6EAD900A3B982 /* CustomError.swift */,
+				B89972E527E16F9A00E419D7 /* String.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
 				B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */,
 				B8E9EF4827C75BF6007D3F8C /* Repository.swift in Sources */,
+				B89972E627E16F9A00E419D7 /* String.swift in Sources */,
 				B8E9EF4627C759D9007D3F8C /* RemoteDataSource.swift in Sources */,
 				B8E9EF4A27C75CCD007D3F8C /* HomeUseCase.swift in Sources */,
 				B84070C327CF21B0006A2AEF /* Encode.swift in Sources */,

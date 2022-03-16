@@ -189,6 +189,7 @@ private struct TaskItemView: View {
             .foregroundColor(Color(.systemGray))
         }
         .padding()
+        Spacer()
         Rectangle()
           .frame(width: 1, height: 50)
           .foregroundColor(Color(.systemGray6))
