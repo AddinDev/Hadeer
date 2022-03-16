@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct HomeView: View {
+  @EnvironmentObject var authentication: Authentication
   @ObservedObject var presenter: HomePresenter
   var body: some View {
-    
     ZStack {
       Color.white
       ScrollView {
@@ -26,6 +27,12 @@ struct HomeView: View {
           }
         }
       }
+      .onAppear {
+        if presenter.tasks.count == 0 {
+          presenter.fetchTasks()
+        }
+      }
+      
     }
     .navigationTitle("")
     .navigationBarTitleDisplayMode(.inline)
@@ -34,6 +41,43 @@ struct HomeView: View {
 }
 
 extension HomeView {
+  
+  private var loadingIndicator: some View {
+    HStack {
+      spacer
+      VStack {
+        ProgressView()
+          .progressViewStyle(CircularProgressViewStyle())
+        Text("Loading...")
+      }
+      spacer
+    }
+    .padding()
+  }
+  
+  private var errorIndicator: some View {
+    VStack {
+      Text("ERROR")
+      Text(presenter.errorMessage)
+      Button(action: {
+        presenter.fetchTasks()
+      }) {
+        VStack {
+          Image(systemName: "arrow.counterclockwise")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 20)
+          Text("Retry")
+            .fontWeight(.bold)
+        }
+        .foregroundColor(.blue)
+      }
+      .padding(10)
+      
+    }
+    .foregroundColor(.red)
+    .padding()
+  }
   
   private var background: some View {
     Image("SignerBackground Half")
@@ -48,6 +92,9 @@ extension HomeView {
         Image(systemName: "person.circle")
           .resizable()
           .frame(width: 25, height: 25)
+          .onTapGesture {
+            authentication.signOut()
+          }
         spacer
         Image(systemName: "bell.fill")
           .resizable()
@@ -76,13 +123,18 @@ extension HomeView {
         CategoryBoxView(title: "Izin", quantity: 200, color: .cpurple)
         spacer
       }
-      LazyVStack(spacing: 10) {
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cgreen)
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cred)
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cpurple)
-        TaskItemView(title: "Alpha", time: "5-10-2020", desc: "Matematika", author: "Bapak Udiono", type: "Algoritma", color: .cgreen)
+      if presenter.isLoading {
+        loadingIndicator
+      } else if presenter.isError {
+        errorIndicator
+      } else {
+        LazyVStack(spacing: 10) {
+          ForEach(presenter.tasks) { task in
+            TaskItemView(title: task.nama, time: task.waktu, desc: task.materi, author: task.guruID, type: task.kelas, color: .cgreen)
+          }
+        }
+        .padding(.vertical, 20)
       }
-      .padding(.vertical, 20)
       spacer
     }
   }

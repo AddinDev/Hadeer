@@ -11,6 +11,7 @@ import Combine
 protocol RepositoryProtocol {
   func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
+  func fetchTasks(_ username: String) -> AnyPublisher<TaskModels, Error>
 
 }
 
@@ -38,6 +39,12 @@ extension Repository: RepositoryProtocol {
   
   func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
     self.remote.signIn(username, password)
+  }
+  
+  func fetchTasks(_ username: String) -> AnyPublisher<TaskModels, Error> {
+    self.remote.fetchTasks(username)
+      .map { TaskMapper.responseToDomain(responses: $0) }
+      .eraseToAnyPublisher()
   }
   
 }

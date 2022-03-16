@@ -25,6 +25,9 @@
 		B84070C827CF225F006A2AEF /* SignUpAuthorizationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C727CF225F006A2AEF /* SignUpAuthorizationModel.swift */; };
 		B84070CA27CF25D8006A2AEF /* SignerUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C927CF25D8006A2AEF /* SignerUserCase.swift */; };
 		B84070CC27CF2675006A2AEF /* SignerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070CB27CF2675006A2AEF /* SignerPresenter.swift */; };
+		B85051EE27DAE51500483346 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051ED27DAE51500483346 /* TaskResponse.swift */; };
+		B85051F027DAE55C00483346 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051EF27DAE55C00483346 /* TaskModel.swift */; };
+		B85051F227DAE75600483346 /* TaskMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051F127DAE75600483346 /* TaskMapper.swift */; };
 		B850FB8327C6688900776925 /* SignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850FB8227C6688900776925 /* SignerView.swift */; };
 		B867B8F427C70982008772E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F327C70982008772E5 /* Colors.swift */; };
 		B867B8F627C71A3D008772E5 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F527C71A3D008772E5 /* HostingController.swift */; };
@@ -81,6 +84,9 @@
 		B84070C727CF225F006A2AEF /* SignUpAuthorizationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAuthorizationModel.swift; sourceTree = "<group>"; };
 		B84070C927CF25D8006A2AEF /* SignerUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerUserCase.swift; sourceTree = "<group>"; };
 		B84070CB27CF2675006A2AEF /* SignerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerPresenter.swift; sourceTree = "<group>"; };
+		B85051ED27DAE51500483346 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
+		B85051EF27DAE55C00483346 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B85051F127DAE75600483346 /* TaskMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMapper.swift; sourceTree = "<group>"; };
 		B850FB8227C6688900776925 /* SignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerView.swift; sourceTree = "<group>"; };
 		B867B8F327C70982008772E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B867B8F527C71A3D008772E5 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */,
+				B85051ED27DAE51500483346 /* TaskResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -393,6 +400,7 @@
 		B8D4D7B327C4FD3500AEE076 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				B85051F127DAE75600483346 /* TaskMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -400,6 +408,7 @@
 		B8D4D7B427C4FD3E00AEE076 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B85051EF27DAE55C00483346 /* TaskModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -663,9 +672,11 @@
 				B84070CC27CF2675006A2AEF /* SignerPresenter.swift in Sources */,
 				B867B8F627C71A3D008772E5 /* HostingController.swift in Sources */,
 				B867B8F827C71A55008772E5 /* NavigationBarModifier.swift in Sources */,
+				B85051F227DAE75600483346 /* TaskMapper.swift in Sources */,
 				B867B8F427C70982008772E5 /* Colors.swift in Sources */,
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
 				B84070C127CF1EAE006A2AEF /* DefaultResponse.swift in Sources */,
+				B85051F027DAE55C00483346 /* TaskModel.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
 				B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */,
@@ -678,6 +689,7 @@
 				B84070C827CF225F006A2AEF /* SignUpAuthorizationModel.swift in Sources */,
 				B8E9EF4E27C75E61007D3F8C /* HomePresenter.swift in Sources */,
 				B867B8FA27C7208B008772E5 /* Font.swift in Sources */,
+				B85051EE27DAE51500483346 /* TaskResponse.swift in Sources */,
 				B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */,
 				B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,

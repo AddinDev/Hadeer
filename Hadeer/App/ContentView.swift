@@ -13,9 +13,7 @@ struct ContentView: View {
 
   @EnvironmentObject var signerPresenter: SignerPresenter
   @EnvironmentObject var homePresenter: HomePresenter
-  
-  @State private var selected = 0
-  
+    
   var body: some View {
     //      NavigationView {
     //        TabView(selection: $selected) {

@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol HomeUseCase {
-  
+  func fetchTasks(_ username: String) -> AnyPublisher<TaskModels, Error>
+
 }
 
 class HomeIntercator {
@@ -23,4 +25,8 @@ class HomeIntercator {
 
 extension HomeIntercator: HomeUseCase {
   
+  func fetchTasks(_ username: String) -> AnyPublisher<TaskModels, Error> {
+    return repository.fetchTasks(username)
+  }
+
 }

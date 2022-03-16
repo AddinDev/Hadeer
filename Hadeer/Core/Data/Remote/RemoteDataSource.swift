@@ -12,7 +12,7 @@ import Alamofire
 protocol RemoteDataSourceProtocol {
   func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
-  //  func fetchTasks(_ username: String) -> AnyPublisher<Bool, Error>
+  func fetchTasks(_ username: String) -> AnyPublisher<TaskResponses, Error>
   
 }
 
@@ -82,6 +82,25 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     }
     .eraseToAnyPublisher()
     
+  }
+  
+  func fetchTasks(_ username: String) -> AnyPublisher<TaskResponses, Error> {
+    return Future<TaskResponses, Error> { completion in
+      print("TASK: FETCH TASKS")
+      guard let url = URL(string: Api.fetchTasks) else { return }
+      AF.request(url, method: .get, parameters: ["kelas": "12"], encoder: URLEncodedFormParameterEncoder(destination: .queryString))
+        .responseDecodable(of: TaskResponseCollection.self) { response in
+          switch response.result {
+            case .success(let value):
+              print("TASK: \(value)")
+              completion(.success(value.result))
+            case .failure(let error):
+              print("TASKERROR: \(error.localizedDescription)")
+              completion(.failure(error))
+          }
+        }
+    }
+    .eraseToAnyPublisher()
   }
   
 }
