@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskResponseCollection: Codable {
+struct TaskResponseContainer: Codable {
     let status: String
     let statusCode: Int
     let result: [TaskResponse]
@@ -20,12 +20,12 @@ struct TaskResponseCollection: Codable {
 }
 
 struct TaskResponse: Codable {
-    let id, nama, kelas, guruID: String
+    let id, nama, kelas, guru: String
     let waktu, materi: String
 
     enum CodingKeys: String, CodingKey {
         case id, nama, kelas
-        case guruID = "guru_id"
+        case guru = "nama_guru"
         case waktu, materi
     }
 }

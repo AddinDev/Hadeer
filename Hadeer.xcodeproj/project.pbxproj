@@ -15,6 +15,11 @@
 		B80984BB27C4914F006B7224 /* HadeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BA27C4914F006B7224 /* HadeerUITests.swift */; };
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
+		B8191A3E27E417AF004FD39E /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A3D27E417AF004FD39E /* UserResponse.swift */; };
+		B8191A4027E419C7004FD39E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A3F27E419C7004FD39E /* UserModel.swift */; };
+		B8191A4227E41A48004FD39E /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A4127E41A48004FD39E /* UserMapper.swift */; };
+		B8191A4427E423FA004FD39E /* StudentTaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A4327E423FA004FD39E /* StudentTaskResponse.swift */; };
+		B8191A4627E42409004FD39E /* TeacherTaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A4527E42409004FD39E /* TeacherTaskResponse.swift */; };
 		B81CF58A27C867C30057080A /* LinkPreview in Frameworks */ = {isa = PBXBuildFile; productRef = B81CF58927C867C30057080A /* LinkPreview */; };
 		B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8334C3D27D6EAD900A3B982 /* CustomError.swift */; };
 		B8334C4127D6F2FA00A3B982 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8334C4027D6F2FA00A3B982 /* Authentication.swift */; };
@@ -26,7 +31,7 @@
 		B84070CA27CF25D8006A2AEF /* SignerUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070C927CF25D8006A2AEF /* SignerUserCase.swift */; };
 		B84070CC27CF2675006A2AEF /* SignerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84070CB27CF2675006A2AEF /* SignerPresenter.swift */; };
 		B85051EE27DAE51500483346 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051ED27DAE51500483346 /* TaskResponse.swift */; };
-		B85051F027DAE55C00483346 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051EF27DAE55C00483346 /* TaskModel.swift */; };
+		B85051F027DAE55C00483346 /* StudentTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051EF27DAE55C00483346 /* StudentTaskModel.swift */; };
 		B85051F227DAE75600483346 /* TaskMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85051F127DAE75600483346 /* TaskMapper.swift */; };
 		B850FB8327C6688900776925 /* SignerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B850FB8227C6688900776925 /* SignerView.swift */; };
 		B867B8F427C70982008772E5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B867B8F327C70982008772E5 /* Colors.swift */; };
@@ -39,6 +44,10 @@
 		B87724B227E179050081EA3F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B127E179050081EA3F /* HomeRouter.swift */; };
 		B87724B427E1797E0081EA3F /* DetailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B327E1797E0081EA3F /* DetailUseCase.swift */; };
 		B87724B827E179F50081EA3F /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B727E179F50081EA3F /* DetailPresenter.swift */; };
+		B87BC7F827E8042100FF8BFB /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7F727E8042100FF8BFB /* CommentResponse.swift */; };
+		B87BC7FA27E80C0F00FF8BFB /* TeacherTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7F927E80C0F00FF8BFB /* TeacherTaskModel.swift */; };
+		B87BC7FC27E80F7900FF8BFB /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */; };
+		B87BC7FE27E810BC00FF8BFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7FD27E810BC00FF8BFB /* Constants.swift */; };
 		B89972E627E16F9A00E419D7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89972E527E16F9A00E419D7 /* String.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
@@ -79,6 +88,11 @@
 		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8191A3D27E417AF004FD39E /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		B8191A3F27E419C7004FD39E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B8191A4127E41A48004FD39E /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
+		B8191A4327E423FA004FD39E /* StudentTaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTaskResponse.swift; sourceTree = "<group>"; };
+		B8191A4527E42409004FD39E /* TeacherTaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTaskResponse.swift; sourceTree = "<group>"; };
 		B8334C3D27D6EAD900A3B982 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		B8334C4027D6F2FA00A3B982 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		B8334C4227D6F34F00A3B982 /* UserAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentication.swift; sourceTree = "<group>"; };
@@ -89,7 +103,7 @@
 		B84070C927CF25D8006A2AEF /* SignerUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerUserCase.swift; sourceTree = "<group>"; };
 		B84070CB27CF2675006A2AEF /* SignerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerPresenter.swift; sourceTree = "<group>"; };
 		B85051ED27DAE51500483346 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
-		B85051EF27DAE55C00483346 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B85051EF27DAE55C00483346 /* StudentTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTaskModel.swift; sourceTree = "<group>"; };
 		B85051F127DAE75600483346 /* TaskMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMapper.swift; sourceTree = "<group>"; };
 		B850FB8227C6688900776925 /* SignerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignerView.swift; sourceTree = "<group>"; };
 		B867B8F327C70982008772E5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -102,6 +116,10 @@
 		B87724B127E179050081EA3F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		B87724B327E1797E0081EA3F /* DetailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCase.swift; sourceTree = "<group>"; };
 		B87724B727E179F50081EA3F /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		B87BC7F727E8042100FF8BFB /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		B87BC7F927E80C0F00FF8BFB /* TeacherTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTaskModel.swift; sourceTree = "<group>"; };
+		B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		B87BC7FD27E810BC00FF8BFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B89972E527E16F9A00E419D7 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -382,6 +400,10 @@
 			children = (
 				B84070C027CF1EAE006A2AEF /* DefaultResponse.swift */,
 				B85051ED27DAE51500483346 /* TaskResponse.swift */,
+				B8191A3D27E417AF004FD39E /* UserResponse.swift */,
+				B8191A4327E423FA004FD39E /* StudentTaskResponse.swift */,
+				B8191A4527E42409004FD39E /* TeacherTaskResponse.swift */,
+				B87BC7F727E8042100FF8BFB /* CommentResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -396,6 +418,7 @@
 		B8D4D7B127C4FD2A00AEE076 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				B87BC7FD27E810BC00FF8BFB /* Constants.swift */,
 				B867B8F327C70982008772E5 /* Colors.swift */,
 				B867B8F527C71A3D008772E5 /* HostingController.swift */,
 				B867B8F727C71A55008772E5 /* NavigationBarModifier.swift */,
@@ -419,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				B85051F127DAE75600483346 /* TaskMapper.swift */,
+				B8191A4127E41A48004FD39E /* UserMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -426,7 +450,10 @@
 		B8D4D7B427C4FD3E00AEE076 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B85051EF27DAE55C00483346 /* TaskModel.swift */,
+				B85051EF27DAE55C00483346 /* StudentTaskModel.swift */,
+				B8191A3F27E419C7004FD39E /* UserModel.swift */,
+				B87BC7F927E80C0F00FF8BFB /* TeacherTaskModel.swift */,
+				B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -696,12 +723,19 @@
 				B867B8F427C70982008772E5 /* Colors.swift in Sources */,
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
 				B84070C127CF1EAE006A2AEF /* DefaultResponse.swift in Sources */,
-				B85051F027DAE55C00483346 /* TaskModel.swift in Sources */,
+				B8191A3E27E417AF004FD39E /* UserResponse.swift in Sources */,
+				B8191A4027E419C7004FD39E /* UserModel.swift in Sources */,
+				B87BC7FA27E80C0F00FF8BFB /* TeacherTaskModel.swift in Sources */,
+				B85051F027DAE55C00483346 /* StudentTaskModel.swift in Sources */,
+				B87BC7FE27E810BC00FF8BFB /* Constants.swift in Sources */,
+				B8191A4627E42409004FD39E /* TeacherTaskResponse.swift in Sources */,
+				B87BC7FC27E80F7900FF8BFB /* TaskModel.swift in Sources */,
 				B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */,
 				B867B90427C72CF2008772E5 /* DetailView.swift in Sources */,
 				B87724B427E1797E0081EA3F /* DetailUseCase.swift in Sources */,
 				B8E9EF4427C758F4007D3F8C /* Api.swift in Sources */,
 				B8E9EF4827C75BF6007D3F8C /* Repository.swift in Sources */,
+				B87BC7F827E8042100FF8BFB /* CommentResponse.swift in Sources */,
 				B87724B227E179050081EA3F /* HomeRouter.swift in Sources */,
 				B89972E627E16F9A00E419D7 /* String.swift in Sources */,
 				B8E9EF4627C759D9007D3F8C /* RemoteDataSource.swift in Sources */,
@@ -712,8 +746,10 @@
 				B84070C827CF225F006A2AEF /* SignUpAuthorizationModel.swift in Sources */,
 				B8E9EF4E27C75E61007D3F8C /* HomePresenter.swift in Sources */,
 				B867B8FA27C7208B008772E5 /* Font.swift in Sources */,
+				B8191A4427E423FA004FD39E /* StudentTaskResponse.swift in Sources */,
 				B85051EE27DAE51500483346 /* TaskResponse.swift in Sources */,
 				B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */,
+				B8191A4227E41A48004FD39E /* UserMapper.swift in Sources */,
 				B84070C627CF2255006A2AEF /* SignInAuthorizationModel.swift in Sources */,
 				B87724B827E179F50081EA3F /* DetailPresenter.swift in Sources */,
 				B850FB8327C6688900776925 /* SignerView.swift in Sources */,

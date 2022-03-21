@@ -26,28 +26,28 @@ class SignerPresenter: ObservableObject {
 
 extension SignerPresenter {
   
-  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String, action: @escaping () -> Void) {
-    isLoading = true
-    useCase.signUp(username, email, phone, password)
-      .receive(on: RunLoop.main)
-      .sink { completion in
-        switch completion {
-          case .finished:
-            self.isLoading = false
-            self.isError = false
-            self.errorMessage = ""
-            action()
-          case .failure(let error):
-            self.isLoading = false
-            self.isError = true
-            self.errorMessage = error.localizedDescription
-            print(error.localizedDescription)
-        }
-      } receiveValue: { value in
-        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
-      }
-      .store(in: &cancellables)
-  }
+//  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String, action: @escaping () -> Void) {
+//    isLoading = true
+//    useCase.signUp(username, email, phone, password)
+//      .receive(on: RunLoop.main)
+//      .sink { completion in
+//        switch completion {
+//          case .finished:
+//            self.isLoading = false
+//            self.isError = false
+//            self.errorMessage = ""
+//            action()
+//          case .failure(let error):
+//            self.isLoading = false
+//            self.isError = true
+//            self.errorMessage = error.localizedDescription
+//            print(error.localizedDescription)
+//        }
+//      } receiveValue: { value in
+//        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
+//      }
+//      .store(in: &cancellables)
+//  }
   
   func signIn(_ username: String, _ password: String, action: @escaping () -> Void) {
     isLoading = true
@@ -66,8 +66,7 @@ extension SignerPresenter {
             self.errorMessage = error.localizedDescription
             print(error.localizedDescription)
         }
-      } receiveValue: { value in
-        print("TASK LOGIN STATUS CODE: \(value.status_code) STATUS: \(value.status)")
+      } receiveValue: { _ in
       }
       .store(in: &cancellables)
   }

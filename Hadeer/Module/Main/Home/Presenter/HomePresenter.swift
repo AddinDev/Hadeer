@@ -10,7 +10,7 @@ import Combine
 
 class HomePresenter: ObservableObject {
   
-  @Published var tasks: TaskModels = []
+  @Published var tasks: [TaskModel] = []
   
   @Published var isLoading = false
   @Published var isError = false
@@ -26,9 +26,37 @@ class HomePresenter: ObservableObject {
     self.useCase = useCase
   }
   
-  func fetchTasks() {
+  func fetchTasks(_ user: UserModel) {
     isLoading = true
-    useCase.fetchTasks("")
+    if user.isStudent() {
+      fetchStudentTasks(user)
+    } else {
+      fetchTeacherTasks(user)
+    }
+  }
+  
+  func fetchStudentTasks(_ user: UserModel) {
+    useCase.fetchStudentTasks(user)
+      .receive(on: RunLoop.main)
+      .sink { completion in
+        switch completion {
+          case .finished:
+            self.isLoading = false
+            self.isError = false
+            self.errorMessage = ""
+          case .failure(let error):
+            self.isLoading = false
+            self.isError = true
+            self.errorMessage = error.localizedDescription
+        }
+      } receiveValue: { tasks in
+        self.tasks = tasks
+      }
+      .store(in: &cancellables)
+  }
+  
+  func fetchTeacherTasks(_ user: UserModel) {
+    useCase.fetchTeacherTasks(user)
       .receive(on: RunLoop.main)
       .sink { completion in
         switch completion {

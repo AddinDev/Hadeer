@@ -43,21 +43,21 @@ extension DetailView {
   private var status: some View {
     HStack {
       VStack {
-        Text(presenter.task.nama)
-        Text(presenter.task.materi)
+        Text(presenter.task.title)
+        Text(presenter.task.material)
       }
       .padding()
       Rectangle()
         .frame(width: 1, height: 50)
         .foregroundColor(Color(.systemGray6))
-      Text(presenter.task.guruID)
+      Text(presenter.task.teacherName)
         .padding()
       Rectangle()
         .frame(width: 1, height: 50)
         .foregroundColor(Color(.systemGray6))
       VStack {
         Text("Hadir")
-        Text(presenter.task.waktu)
+        Text(presenter.task.time)
           .font(.callout)
           .foregroundColor(Color(.systemGray))
       }

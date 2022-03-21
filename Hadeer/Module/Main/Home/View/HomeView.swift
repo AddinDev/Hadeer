@@ -29,7 +29,7 @@ struct HomeView: View {
       }
       .onAppear {
         if presenter.tasks.count == 0 {
-          presenter.fetchTasks()
+          presenter.fetchTasks(Constants.dummyUser)
         }
       }
       
@@ -60,7 +60,7 @@ extension HomeView {
       Text("ERROR")
       Text(presenter.errorMessage)
       Button(action: {
-        presenter.fetchTasks()
+        presenter.fetchTasks(Constants.dummyUser)
       }) {
         VStack {
           Image(systemName: "arrow.counterclockwise")
@@ -129,9 +129,9 @@ extension HomeView {
         errorIndicator
       } else {
         LazyVStack(spacing: 10) {
-          ForEach(presenter.tasks) { task in
+          ForEach(presenter.tasks, id: \.id) { task in
             presenter.linkBuilder(for: task) {
-              TaskItemView(task: task, type: task.kelas, color: .cgreen)
+              TaskItemView(task: task, color: .cgreen)
             }
           }
         }
@@ -172,7 +172,6 @@ private struct CategoryBoxView: View {
 
 private struct TaskItemView: View {
   let task: TaskModel
-  let type: String
   let color: Color
   var body: some View {
       HStack(spacing: 0) {
@@ -180,9 +179,9 @@ private struct TaskItemView: View {
           .frame(width: UIScreen.main.bounds.width / 15, height: 100)
         Spacer()
         VStack {
-          Text(task.nama)
+          Text(task.title)
             .foregroundColor(.black)
-          Text(task.waktu)
+          Text(task.time)
             .font(.callout)
             .foregroundColor(Color(.systemGray))
         }
@@ -191,16 +190,16 @@ private struct TaskItemView: View {
         Rectangle()
           .frame(width: 1, height: 50)
           .foregroundColor(Color(.systemGray6))
-        Text(type)
+        Text(task.grade)
           .foregroundColor(.black)
           .padding()
         Rectangle()
           .frame(width: 1, height: 50)
           .foregroundColor(Color(.systemGray6))
         VStack {
-          Text(task.guruID)
+          Text(task.teacherName)
             .foregroundColor(.black)
-          Text(task.materi)
+          Text(task.material)
             .font(.callout)
             .foregroundColor(Color(.systemGray))
         }

@@ -47,7 +47,6 @@ extension SignerView {
   
   private var errorIndicator: some View {
     VStack {
-      Text("ERROR")
       Text(presenter.errorMessage)
     }
     .foregroundColor(.red)

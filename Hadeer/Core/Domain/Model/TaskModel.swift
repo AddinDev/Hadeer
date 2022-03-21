@@ -2,18 +2,18 @@
 //  TaskModel.swift
 //  Hadeer
 //
-//  Created by Addin Satria on 11/03/22.
+//  Created by Addin Satria on 21/03/22.
 //
 
 import Foundation
 
-struct TaskModel: Identifiable {
-  let id: String
-  let nama: String
-  let kelas: String
-  let guruID: String
-  let waktu: String
-  let materi: String
+protocol TaskModel {
+  var id: String { get }
+  var title: String { get }
+  var grade: String { get }
+  var teacherName: String { get }
+  var teacherId: String { get }
+  var time: String { get }
+  var material: String { get }
 }
 
-typealias TaskModels = [TaskModel]

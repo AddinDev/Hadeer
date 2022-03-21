@@ -13,7 +13,7 @@ extension Encodable {
     guard let encodedData = try? JSONEncoder().encode(self) else { return "" }
     if let jsonString = String(data: encodedData, encoding: .utf8) {
       let base = Data(jsonString.utf8).base64EncodedString()
-      print("TASK ENCODED AUTH: \(base)")
+      print("[ENCODED AUTH]: \(base)")
       return base
     }
     return ""
