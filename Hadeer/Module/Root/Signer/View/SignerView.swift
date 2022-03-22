@@ -89,8 +89,8 @@ extension SignerView {
       .padding(.vertical, 10)
       Button(action: {
           presenter.signIn(username, password) { user in
-            auth.signIn()
             auth.change(UserMapper.domainToAuth(user))
+            auth.signIn()
           }
       }) {
         HStack {

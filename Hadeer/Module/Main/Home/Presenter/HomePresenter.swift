@@ -36,6 +36,8 @@ class HomePresenter: ObservableObject {
   }
   
   func fetchStudentTasks(_ user: UserModel) {
+    print("[USER][\(user)]")
+    tasks = []
     useCase.fetchStudentTasks(user)
       .receive(on: RunLoop.main)
       .sink { completion in
@@ -56,6 +58,8 @@ class HomePresenter: ObservableObject {
   }
   
   func fetchTeacherTasks(_ user: UserModel) {
+    print("[USER][\(user)]")
+    tasks = []
     useCase.fetchTeacherTasks(user)
       .receive(on: RunLoop.main)
       .sink { completion in

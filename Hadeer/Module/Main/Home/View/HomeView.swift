@@ -32,6 +32,9 @@ struct HomeView: View {
           presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
         }
       }
+      .onDisappear {
+        presenter.tasks = []
+      }
       
     }
     .navigationTitle("")
@@ -76,6 +79,15 @@ extension HomeView {
       
     }
     .foregroundColor(.red)
+    .padding()
+  }
+  
+  private var emptyIndicator: some View {
+    HStack {
+      Spacer()
+      Text("There's no tasks")
+      Spacer()
+    }
     .padding()
   }
   
@@ -127,6 +139,8 @@ extension HomeView {
         loadingIndicator
       } else if presenter.isError {
         errorIndicator
+      } else if presenter.tasks.isEmpty {
+        emptyIndicator
       } else {
         LazyVStack(spacing: 10) {
           ForEach(presenter.tasks, id: \.id) { task in
