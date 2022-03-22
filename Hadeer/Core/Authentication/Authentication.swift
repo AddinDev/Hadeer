@@ -7,26 +7,12 @@
 
 import Foundation
 
-struct Log: Codable {
-
-  private var signedIn: Bool = false
-  
-  var hasSignedIn: Bool {
-    get {
-      return self.signedIn
-    }
-    set(newSignedIn) {
-      self.signedIn = newSignedIn
-    }
-  }
-}
-
 struct AuthDataStore {
   
   static let shared = AuthDataStore()
-  private let key = "hadeer.savedUser"
+  private let key = "hadeer.saved.user"
   
-  func save(_ user: Log) {
+  func save(_ user: UserAuthentication) {
     let encoder = JSONEncoder()
     if let encoded = try? encoder.encode(user) {
       let defaults = UserDefaults.standard
@@ -34,15 +20,15 @@ struct AuthDataStore {
     }
   }
   
-  func load() -> Log {
+  func load() -> UserAuthentication {
     let defaults = UserDefaults.standard
     if let savedUser = defaults.object(forKey: key) as? Data {
       let decoder = JSONDecoder()
-      if let loadedUser = try? decoder.decode(Log.self, from: savedUser) {
+      if let loadedUser = try? decoder.decode(UserAuthentication.self, from: savedUser) {
         return loadedUser
       }
     }
-    return Log() // instantiate a new User and return
+    return UserAuthentication() // instantiate a new User and return
     // if it's not stored previously
   }
   
@@ -53,16 +39,18 @@ struct AuthDataStore {
   
 }
 
-class Authentication: UserAuthentication {
+class Authentication: ObservableObject {
   
-  @Published private var auth = AuthDataStore.shared.load()
+  @Published var savedUser = AuthDataStore.shared.load()
+  
+  private var data = AuthDataStore.shared
   
   var hasSignedIn: Bool {
     get {
-      auth.hasSignedIn
+      savedUser.hasSignedIn
     }
     set(newHasSignedIn) {
-      auth.hasSignedIn = newHasSignedIn
+      savedUser.hasSignedIn = newHasSignedIn
     }
   }
   
@@ -71,15 +59,23 @@ class Authentication: UserAuthentication {
 extension Authentication {
   
   func signIn() {
-    self.auth.hasSignedIn = true
-    AuthDataStore.shared.save(auth)
-    super.reload()
+    self.savedUser.hasSignedIn = true
+    data.save(savedUser)
   }
   
   func signOut() {
-    self.auth.hasSignedIn = false
-    AuthDataStore.shared.removeUser()
-    super.remove()
+    self.savedUser.hasSignedIn = false
+    data.removeUser()
+  }
+  
+  func load() {
+    savedUser = AuthDataStore.shared.load()
+    data.save(savedUser)
+  }
+  
+  func change(_ user: UserAuthentication) {
+    savedUser = user
+    data.save(savedUser)
   }
   
 }

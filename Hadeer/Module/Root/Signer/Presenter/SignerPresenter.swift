@@ -49,8 +49,9 @@ extension SignerPresenter {
 //      .store(in: &cancellables)
 //  }
   
-  func signIn(_ username: String, _ password: String, action: @escaping () -> Void) {
+  func signIn(_ username: String, _ password: String, action: @escaping (UserModel) -> Void) {
     isLoading = true
+    var user: UserModel = Constants.dummyUser
     useCase.signIn(username, password)
       .receive(on: RunLoop.main)
       .sink { completion in
@@ -59,14 +60,16 @@ extension SignerPresenter {
             self.isLoading = false
             self.isError = false
             self.errorMessage = ""
-            action()
+            action(user)
           case .failure(let error):
             self.isLoading = false
             self.isError = true
             self.errorMessage = error.localizedDescription
-            print(error.localizedDescription)
+            print("[ERROR] \(error.localizedDescription)")
         }
-      } receiveValue: { _ in
+      } receiveValue: { userResult in
+        user = userResult
+        print("[MESSAGE][\(userResult.message)]")
       }
       .store(in: &cancellables)
   }

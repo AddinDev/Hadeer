@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel: Codable {
+struct UserModel {
   let id: String
   let username: String
   let name: String
@@ -17,6 +17,7 @@ struct UserModel: Codable {
   let image: String
   var roles: String = "0"
   let grade: String
+  let message: String
   
   func isStudent() -> Bool {
     if roles == "1" {
@@ -25,7 +26,4 @@ struct UserModel: Codable {
     return false
   }
   
-  func query() -> [String: String] {
-    return isStudent() ? ["kelas": grade] : ["guruid": id]
-  }
 }

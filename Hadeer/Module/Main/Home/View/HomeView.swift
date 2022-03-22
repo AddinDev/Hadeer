@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 
 struct HomeView: View {
-  @EnvironmentObject var authentication: Authentication
+  @EnvironmentObject var auth: Authentication
   @ObservedObject var presenter: HomePresenter
   var body: some View {
     ZStack {
@@ -29,7 +29,7 @@ struct HomeView: View {
       }
       .onAppear {
         if presenter.tasks.count == 0 {
-          presenter.fetchTasks(Constants.dummyUser)
+          presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
         }
       }
       
@@ -93,7 +93,7 @@ extension HomeView {
           .resizable()
           .frame(width: 25, height: 25)
           .onTapGesture {
-            authentication.signOut()
+            auth.signOut()
           }
         spacer
         Image(systemName: "bell.fill")
@@ -106,7 +106,7 @@ extension HomeView {
       VStack(alignment: .leading) {
         Text("Selamat Pagi,")
           .font(.title2)
-        Text("Udinus Santhos")
+        Text(auth.savedUser.name)
           .font(.title)
           .bold()
       }

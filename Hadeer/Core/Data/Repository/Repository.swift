@@ -40,7 +40,7 @@ extension Repository: RepositoryProtocol {
   
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserModel, Error> {
     self.remote.signIn(username, password)
-      .map { UserMapper.responseToDomain(response: $0) }
+      .map { UserMapper.responseToDomain(container: $0) }
       .eraseToAnyPublisher()
   }
   

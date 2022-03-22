@@ -7,25 +7,24 @@
 
 import Foundation
 
-class UserAuthentication: ObservableObject {
-      
-  @Published var username: String = ""
-    
-  init() {
-    load()
+struct UserAuthentication: Codable {
+  
+  var hasSignedIn: Bool = false
+  var id: String = "0"
+  var name: String = ""
+  var username: String = ""
+  var email: String = ""
+  var password: String = ""
+  var token: String = ""
+  var image: String = ""
+  var roles: String = "0"
+  var grade: String = ""
+  
+  func isStudent() -> Bool {
+    if roles == "1" {
+      return true
+    }
+    return false
   }
   
-  func remove() {
-    username = ""
-    print("TASK: USER REMOVED")
-  }
-    
-  func reload() {
-    load()
-  }
-  
-  func load() {
-    username = "JOHN"
-  }
-
 }

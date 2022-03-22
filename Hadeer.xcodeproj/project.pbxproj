@@ -48,6 +48,8 @@
 		B87BC7FA27E80C0F00FF8BFB /* TeacherTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7F927E80C0F00FF8BFB /* TeacherTaskModel.swift */; };
 		B87BC7FC27E80F7900FF8BFB /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */; };
 		B87BC7FE27E810BC00FF8BFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7FD27E810BC00FF8BFB /* Constants.swift */; };
+		B87BC84A27E8307500FF8BFB /* LocaleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC84927E8307500FF8BFB /* LocaleDataSource.swift */; };
+		B87BC84C27E830F000FF8BFB /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC84B27E830F000FF8BFB /* UserEntity.swift */; };
 		B89972E627E16F9A00E419D7 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89972E527E16F9A00E419D7 /* String.swift */; };
 		B8D8EE5827C5B32600277158 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D8EE5727C5B32600277158 /* HomeView.swift */; };
 		B8D8EE5A27C5B36300277158 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B8D8EE5927C5B36300277158 /* .swiftlint.yml */; };
@@ -120,6 +122,8 @@
 		B87BC7F927E80C0F00FF8BFB /* TeacherTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTaskModel.swift; sourceTree = "<group>"; };
 		B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B87BC7FD27E810BC00FF8BFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B87BC84927E8307500FF8BFB /* LocaleDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDataSource.swift; sourceTree = "<group>"; };
+		B87BC84B27E830F000FF8BFB /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		B89972E527E16F9A00E419D7 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		B8D8EE5727C5B32600277158 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8D8EE5927C5B36300277158 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 		B8D4D7AD27C4FD0600AEE076 /* Locale */ = {
 			isa = PBXGroup;
 			children = (
+				B87BC84927E8307500FF8BFB /* LocaleDataSource.swift */,
 				B8D4D7B027C4FD1C00AEE076 /* Entity */,
 			);
 			path = Locale;
@@ -411,6 +416,7 @@
 		B8D4D7B027C4FD1C00AEE076 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				B87BC84B27E830F000FF8BFB /* UserEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -727,6 +733,7 @@
 				B8191A4027E419C7004FD39E /* UserModel.swift in Sources */,
 				B87BC7FA27E80C0F00FF8BFB /* TeacherTaskModel.swift in Sources */,
 				B85051F027DAE55C00483346 /* StudentTaskModel.swift in Sources */,
+				B87BC84C27E830F000FF8BFB /* UserEntity.swift in Sources */,
 				B87BC7FE27E810BC00FF8BFB /* Constants.swift in Sources */,
 				B8191A4627E42409004FD39E /* TeacherTaskResponse.swift in Sources */,
 				B87BC7FC27E80F7900FF8BFB /* TaskModel.swift in Sources */,
@@ -758,6 +765,7 @@
 				B8E9EF4C27C75D2C007D3F8C /* Injection.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
 				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
+				B87BC84A27E8307500FF8BFB /* LocaleDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

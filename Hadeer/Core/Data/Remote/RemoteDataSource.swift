@@ -11,7 +11,7 @@ import Alamofire
 
 protocol RemoteDataSourceProtocol {
 //  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
-  func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponse, Error>
+  func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponsesContainer, Error>
   func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskResponses, Error>
   func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskResponses, Error>
 
@@ -27,8 +27,8 @@ final class RemoteDataSource {
 
 extension RemoteDataSource: RemoteDataSourceProtocol {
   
-  func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponse, Error> {
-    return Future<UserResponse, Error> { completion in
+  func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponsesContainer, Error> {
+    return Future<UserResponsesContainer, Error> { completion in
       print("[SIGN IN]")
       
       guard let url = URL(string: Api.signIn) else { return }
@@ -49,12 +49,15 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
           if let data = data {
             do {
               let result = try JSONDecoder().decode(UserResponsesContainer.self, from: data)
-              completion(.success(result.result))
+              print("[SUCCESS]")
+              completion(.success(result))
             } catch {
-              completion(.failure(error))
+              print("[ERROR][SIGNIN]")
+              debugPrint(error)
+              completion(.failure(URLError.custom("Wrong credentials")))
             }
           } else {
-            completion(.failure(URLError.custom("Data can't be initialized")))
+            completion(.failure(URLError.invalidResponse))
           }
         }
         task.resume()
@@ -86,6 +89,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
           do {
             let result = try JSONDecoder().decode(StudentTaskResponsesContainer.self, from: data)
             completion(.success(result.result))
+            print("[SUCCESS]")
           } catch {
             completion(.failure(error))
           }
@@ -120,6 +124,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
           do {
             let result = try JSONDecoder().decode(TeacherTaskResponsesContainer.self, from: data)
             completion(.success(result.result))
+            print("[SUCCESS]")
           } catch {
             completion(.failure(error))
           }

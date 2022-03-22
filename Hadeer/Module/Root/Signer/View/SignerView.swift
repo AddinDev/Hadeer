@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignerView: View {
   //  @State private var route: String?
-  @EnvironmentObject var authentication: Authentication
+  @EnvironmentObject var auth: Authentication
   @ObservedObject var presenter: SignerPresenter
   
   @State private var username = ""
@@ -26,9 +26,11 @@ struct SignerView: View {
         .padding(20)
         .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
       if presenter.isLoading {
+        ZStack {
         Color.black.opacity(0.6).edgesIgnoringSafeArea(.all)
         ProgressView()
           .progressViewStyle(CircularProgressViewStyle())
+        }
       }
     }
     .navigationTitle("")
@@ -86,8 +88,9 @@ extension SignerView {
       }
       .padding(.vertical, 10)
       Button(action: {
-          presenter.signIn(username, password) {
-            authentication.signIn()
+          presenter.signIn(username, password) { user in
+            auth.signIn()
+            auth.change(UserMapper.domainToAuth(user))
           }
       }) {
         HStack {
