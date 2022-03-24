@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol DetailUseCase {
-  func getTask() -> TaskModel
+  func getTask() -> TaskMode
 }
 
 class DetailInteractor {

@@ -12,8 +12,7 @@ import Alamofire
 protocol RemoteDataSourceProtocol {
 //  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponsesContainer, Error>
-  func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskResponses, Error>
-  func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskResponses, Error>
+  func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskResponses, Error>
 
 }
 
@@ -66,14 +65,15 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     .eraseToAnyPublisher()
   }
   
-  func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskResponses, Error> {
-    return Future<StudentTaskResponses, Error> { completion in
+  func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskResponses, Error> {
+    return Future<TaskResponses, Error> { completion in
       print("[FETCH STUDENT TASK]")
       
-      var components = URLComponents(string: Api.studentTasks)
+      var components = URLComponents(string: user.isStudent() ? Api.studentTasks : Api.teacherTasks)
       components?.queryItems = [
-        URLQueryItem(name: "kelas", value: user.grade)
+        user.isStudent() ? URLQueryItem(name: "kelas", value: user.grade) : URLQueryItem(name: "guruid", value: user.id)
       ]
+      
       guard let urlString = components?.string else { return }
       guard let url = URL(string: urlString) else { return }
       var request = URLRequest(url: url)
@@ -81,48 +81,13 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
       
       let task = URLSession.shared.dataTask(with: request) { data, _, error in
         if let error = error {
-          print("[ERROR FETCH STUDENT TASK][\(error.localizedDescription)]")
+          print("[ERROR FETCH TASK][\(error.localizedDescription)]")
           completion(.failure(error))
           return
         }
         if let data = data {
           do {
-            let result = try JSONDecoder().decode(StudentTaskResponsesContainer.self, from: data)
-            completion(.success(result.result))
-            print("[SUCCESS]")
-          } catch {
-            completion(.failure(error))
-          }
-        } else {
-          completion(.failure(URLError.custom("Data can't be initialized")))
-        }
-      }
-      task.resume()
-    }
-    .eraseToAnyPublisher()
-  }
-  
-  func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskResponses, Error> {
-    return Future<TeacherTaskResponses, Error> { completion in
-      print("[FETCH TEACHER TASKS]")
-      var components = URLComponents(string: Api.teacherTasks)
-      components?.queryItems = [
-        URLQueryItem(name: "guruid", value: user.id)
-      ]
-      guard let urlString = components?.string else { return }
-      guard let url = URL(string: urlString) else { return }
-      var request = URLRequest(url: url)
-      request.httpMethod = "GET"
-      
-      let task = URLSession.shared.dataTask(with: request) { data, _, error in
-        if let error = error {
-          print("[ERROR FETCH TEACHER TASK][\(error.localizedDescription)]")
-          completion(.failure(error))
-          return
-        }
-        if let data = data {
-          do {
-            let result = try JSONDecoder().decode(TeacherTaskResponsesContainer.self, from: data)
+            let result = try JSONDecoder().decode(TaskResponsesContainer.self, from: data)
             completion(.success(result.result))
             print("[SUCCESS]")
           } catch {

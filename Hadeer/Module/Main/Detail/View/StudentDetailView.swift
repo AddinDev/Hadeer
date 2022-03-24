@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  StudentDetailView.swift
 //  Hadeer
 //
 //  Created by Addin Satria on 24/02/22.
@@ -9,6 +9,7 @@ import SwiftUI
 import LinkPreview
 
 struct DetailView: View {
+  @EnvironmentObject var auth: Authentication
   @StateObject var presenter: DetailPresenter
   var body: some View {
     content
@@ -25,6 +26,9 @@ extension DetailView {
         status
         sections
         spacer
+        if !auth.savedUser.isStudent() {
+          button
+        }
       }
     }
     .edgesIgnoringSafeArea(.top)
@@ -94,12 +98,12 @@ extension DetailView {
       .frame(width: UIScreen.main.bounds.width)
       devider
       VStack {
-      HStack {
-        Text("Absensi: ")
-          .bold()
-        Text("[Link](https://apple.com)")
-        Spacer()
-      }
+        HStack {
+          Text("Absensi: ")
+            .bold()
+          Text("[Link](https://apple.com)")
+          Spacer()
+        }
         LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))
           .frame(width: UIScreen.main.bounds.width / 1.2)
       }
@@ -107,6 +111,14 @@ extension DetailView {
       .padding(.vertical, 20)
       .frame(width: UIScreen.main.bounds.width)
       devider
+    }
+  }
+  
+  private var button: some View {
+    Button(action: {
+      
+    }) {
+      Text("Attend")
     }
   }
   

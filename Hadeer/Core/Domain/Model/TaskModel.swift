@@ -7,13 +7,22 @@
 
 import Foundation
 
-protocol TaskModel {
-  var id: String { get }
-  var title: String { get }
-  var grade: String { get }
-  var teacherName: String { get }
-  var teacherId: String { get }
-  var time: String { get }
-  var material: String { get }
+struct TaskModel: Identifiable {
+  let id: String
+  let title: String
+  let grade: String
+  let teacherName: String
+  let teacherId: String
+  let time: String
+  let material: String
+  let students: [StudentsOfTaskModel]
+  
+}
+
+typealias TaskModels = [TaskModel]
+
+struct StudentsOfTaskModel: Identifiable {
+  let id: String
+  let name: String
 }
 

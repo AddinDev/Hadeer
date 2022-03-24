@@ -9,8 +9,7 @@ import Foundation
 import Combine
 
 protocol HomeUseCase {
-  func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskModels, Error>
-  func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskModels, Error>
+  func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskModels, Error>
 }
 
 class HomeIntercator {
@@ -25,11 +24,8 @@ class HomeIntercator {
 
 extension HomeIntercator: HomeUseCase {
   
-  func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskModels, Error> {
-    self.repository.fetchStudentTasks(user)
-  }
-  func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskModels, Error> {
-    self.repository.fetchTeacherTasks(user)
+  func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskModels, Error> {
+    self.repository.fetchTasks(user)
   }
 
 }

@@ -11,8 +11,7 @@ import Combine
 protocol RepositoryProtocol {
 //  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserModel, Error>
-  func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskModels, Error>
-  func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskModels, Error>
+  func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskModels, Error>
   
 }
 
@@ -34,25 +33,15 @@ final class Repository {
 
 extension Repository: RepositoryProtocol {
   
-//  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error> {
-//    self.remote.signUp(username, email, phone, password)
-//  }
-  
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserModel, Error> {
     self.remote.signIn(username, password)
       .map { UserMapper.responseToDomain(container: $0) }
       .eraseToAnyPublisher()
   }
   
-  func fetchStudentTasks(_ user: UserModel) -> AnyPublisher<StudentTaskModels, Error> {
-    self.remote.fetchStudentTasks(user)
-      .map { TaskMapper.studentResponseToDomain($0) }
-      .eraseToAnyPublisher()
-  }
-  
-  func fetchTeacherTasks(_ user: UserModel) -> AnyPublisher<TeacherTaskModels, Error> {
-    self.remote.fetchTeacherTasks(user)
-      .map { TaskMapper.teacherResponseToDomain($0) }
+  func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskModels, Error> {
+    self.remote.fetchTasks(user)
+      .map { TaskMapper.responseToDomain($0) }
       .eraseToAnyPublisher()
   }
   

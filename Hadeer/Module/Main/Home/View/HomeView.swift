@@ -59,27 +59,31 @@ extension HomeView {
   }
   
   private var errorIndicator: some View {
-    VStack {
-      Text("ERROR")
-      Text(presenter.errorMessage)
-      Button(action: {
-        presenter.fetchTasks(Constants.dummyUser)
-      }) {
-        VStack {
-          Image(systemName: "arrow.counterclockwise")
-            .resizable()
-            .scaledToFit()
-            .frame(height: 20)
-          Text("Retry")
-            .fontWeight(.bold)
+    HStack {
+      Spacer()
+      VStack() {
+        Text("ERROR")
+        Text(presenter.errorMessage)
+        Button(action: {
+          presenter.fetchTasks(Constants.dummyUser)
+        }) {
+          VStack {
+            Image(systemName: "arrow.counterclockwise")
+              .resizable()
+              .scaledToFit()
+              .frame(height: 20)
+            Text("Retry")
+              .fontWeight(.bold)
+          }
+          .foregroundColor(.blue)
         }
-        .foregroundColor(.blue)
+        .padding(10)
+        
       }
-      .padding(10)
-      
+      .foregroundColor(.red)
+      .padding()
+      Spacer()
     }
-    .foregroundColor(.red)
-    .padding()
   }
   
   private var emptyIndicator: some View {
@@ -143,6 +147,7 @@ extension HomeView {
         emptyIndicator
       } else {
         LazyVStack(spacing: 10) {
+          
           ForEach(presenter.tasks, id: \.id) { task in
             presenter.linkBuilder(for: task) {
               TaskItemView(task: task, color: .cgreen)
@@ -188,44 +193,44 @@ private struct TaskItemView: View {
   let task: TaskModel
   let color: Color
   var body: some View {
-      HStack(spacing: 0) {
-        color
-          .frame(width: UIScreen.main.bounds.width / 15, height: 100)
-        Spacer()
-        VStack {
-          Text(task.title)
-            .foregroundColor(.black)
-          Text(task.time)
-            .font(.callout)
-            .foregroundColor(Color(.systemGray))
-        }
-        .padding()
-        Spacer()
-        Rectangle()
-          .frame(width: 1, height: 50)
-          .foregroundColor(Color(.systemGray6))
-        Text(task.grade)
+    HStack(spacing: 0) {
+      color
+        .frame(width: UIScreen.main.bounds.width / 15, height: 100)
+      Spacer()
+      VStack {
+        Text(task.title)
           .foregroundColor(.black)
-          .padding()
-        Rectangle()
-          .frame(width: 1, height: 50)
-          .foregroundColor(Color(.systemGray6))
-        VStack {
-          Text(task.teacherName)
-            .foregroundColor(.black)
-          Text(task.material)
-            .font(.callout)
-            .foregroundColor(Color(.systemGray))
-        }
-        .padding()
-        
+        Text(task.time)
+          .font(.callout)
+          .foregroundColor(Color(.systemGray))
       }
-      .frame(minWidth: 0, maxWidth: .infinity)
-      .background(
-        Color.white
-          .shadow(radius: 1)
-      )
+      .padding()
+      Spacer()
+      Rectangle()
+        .frame(width: 1, height: 50)
+        .foregroundColor(Color(.systemGray6))
+      Text(task.grade)
+        .foregroundColor(.black)
+        .padding()
+      Rectangle()
+        .frame(width: 1, height: 50)
+        .foregroundColor(Color(.systemGray6))
+      VStack {
+        Text(task.teacherName)
+          .foregroundColor(.black)
+        Text(task.material)
+          .font(.callout)
+          .foregroundColor(Color(.systemGray))
+      }
+      .padding()
+      
     }
+    .frame(minWidth: 0, maxWidth: .infinity)
+    .background(
+      Color.white
+        .shadow(radius: 1)
+    )
+  }
   
 }
 
