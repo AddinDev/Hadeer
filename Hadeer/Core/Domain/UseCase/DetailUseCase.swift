@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 protocol DetailUseCase {
-  func getTask() -> TaskMode
+  func getTask() -> TaskModel
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error>
 }
 
 class DetailInteractor {
@@ -29,6 +30,10 @@ extension DetailInteractor: DetailUseCase {
   
   func getTask() -> TaskModel {
     return self.task
+  }
+  
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error> {
+    return repository.attend(taskId, teacherId, studentId)
   }
   
 }

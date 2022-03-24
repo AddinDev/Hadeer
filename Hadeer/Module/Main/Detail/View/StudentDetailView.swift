@@ -27,11 +27,12 @@ extension DetailView {
         sections
         spacer
         if !auth.savedUser.isStudent() {
-          button
+          students
         }
       }
     }
     .edgesIgnoringSafeArea(.top)
+//    .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
   }
   
   private var image: some View {
@@ -114,11 +115,11 @@ extension DetailView {
     }
   }
   
-  private var button: some View {
-    Button(action: {
-      
-    }) {
-      Text("Attend")
+  private var students: some View {
+    VStack {
+      ForEach(presenter.task.students) { student in
+        StudentView(presenter: presenter, student: student)
+      }
     }
   }
   
@@ -136,6 +137,34 @@ extension DetailView {
     Spacer()
   }
   
+}
+
+struct StudentView: View {
+  @StateObject var presenter: DetailPresenter
+  var student: StudentsOfTaskModel
+  @State private var isLoading: Bool = false
+  @State private var isAttended: Bool = false
+  var body: some View {
+    HStack {
+      Text(student.name)
+      Spacer()
+      if isAttended {
+        Text("Attended")
+      } else if isLoading {
+        ProgressView().progressViewStyle(CircularProgressViewStyle())
+    } else {
+        Button(action: {
+          presenter.attend(id: student.id) { attended, loading in
+            isAttended = attended
+            isLoading = loading
+          }
+        }) {
+          Text("Attend")
+        }
+      }
+    }
+    .padding()
+  }
 }
 
 // struct DetailView_Previews: PreviewProvider {

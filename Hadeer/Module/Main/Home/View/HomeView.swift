@@ -32,10 +32,7 @@ struct HomeView: View {
           presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
         }
       }
-      .onDisappear {
-        presenter.tasks = []
-      }
-      
+
     }
     .navigationTitle("")
     .navigationBarTitleDisplayMode(.inline)
@@ -61,7 +58,7 @@ extension HomeView {
   private var errorIndicator: some View {
     HStack {
       Spacer()
-      VStack() {
+      VStack {
         Text("ERROR")
         Text(presenter.errorMessage)
         Button(action: {

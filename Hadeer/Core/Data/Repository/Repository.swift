@@ -12,6 +12,7 @@ protocol RepositoryProtocol {
 //  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserModel, Error>
   func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskModels, Error>
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error>
   
 }
 
@@ -43,6 +44,10 @@ extension Repository: RepositoryProtocol {
     self.remote.fetchTasks(user)
       .map { TaskMapper.responseToDomain($0) }
       .eraseToAnyPublisher()
+  }
+  
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error> {
+    self.remote.attend(taskId, teacherId, studentId)
   }
   
 }

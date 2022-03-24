@@ -10,10 +10,9 @@ import Combine
 import Alamofire
 
 protocol RemoteDataSourceProtocol {
-//  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponsesContainer, Error>
   func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskResponses, Error>
-
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error>
 }
 
 final class RemoteDataSource {
@@ -89,6 +88,50 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
           do {
             let result = try JSONDecoder().decode(TaskResponsesContainer.self, from: data)
             completion(.success(result.result))
+            print("[SUCCESS]")
+          } catch {
+            completion(.failure(error))
+          }
+        } else {
+          completion(.failure(URLError.custom("Data can't be initialized")))
+        }
+      }
+      task.resume()
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error> {
+    return Future<DefaultResponse, Error> { completion in
+      print("[ATTEND]")
+      
+      let body: [String: Any] = [
+        "siswa_id": studentId,
+        "pelajaran_id": taskId,
+        "guru_id": teacherId,
+        "status": "1"
+      ]
+
+      let jsonData = try? JSONSerialization.data(withJSONObject: body)
+      
+      let components = URLComponents(string: Api.attend)
+      
+      guard let urlString = components?.string else { return }
+      guard let url = URL(string: urlString) else { return }
+      var request = URLRequest(url: url)
+      request.httpMethod = "POST"
+      request.httpBody = jsonData
+      
+      let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        if let error = error {
+          print("[ERROR ATTEND][\(error.localizedDescription)]")
+          completion(.failure(error))
+          return
+        }
+        if let data = data {
+          do {
+            let result = try JSONDecoder().decode(DefaultResponse.self, from: data)
+            completion(.success(result))
             print("[SUCCESS]")
           } catch {
             completion(.failure(error))

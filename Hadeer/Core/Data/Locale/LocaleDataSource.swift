@@ -14,8 +14,6 @@ protocol LocaleDataSourceProtocol {
 
 final class LocaleDataSource {
   
-  
-  
 }
 
 extension LocaleDataSource: LocaleDataSourceProtocol {
