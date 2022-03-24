@@ -13,6 +13,7 @@ struct DetailView: View {
   @StateObject var presenter: DetailPresenter
   var body: some View {
     content
+//        .navigationBarHidden(true)
   }
 }
 
@@ -62,7 +63,7 @@ extension DetailView {
         .foregroundColor(Color(.systemGray6))
       VStack {
         Text("Hadir")
-        Text(presenter.task.time)
+        Text(presenter.task.time.formatToDate())
           .font(.callout)
           .foregroundColor(Color(.systemGray))
       }
@@ -77,7 +78,7 @@ extension DetailView {
       HStack {
         Text("Waktu: ")
           .bold()
-        Text("10.00 sampai 12.00 WIB")
+        Text(presenter.task.time.formatToHour())
         Spacer()
       }
       .padding()
@@ -135,6 +136,13 @@ extension DetailView {
   
   private var spacer: some View {
     Spacer()
+  }
+  
+  private var time: String {
+    if let date = DateFormatter().date(from: presenter.task.time) {
+      return "\(Date().distance(to: date))"
+    }
+    return ""
   }
   
 }

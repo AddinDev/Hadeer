@@ -236,8 +236,8 @@
 		B867B90127C72CDE008772E5 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				B87724B527E179E30081EA3F /* Presenter */,
 				B867B90227C72CE5008772E5 /* View */,
+				B87724B527E179E30081EA3F /* Presenter */,
 			);
 			path = Detail;
 			sourceTree = "<group>";

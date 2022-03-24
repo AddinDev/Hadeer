@@ -28,8 +28,9 @@ struct ContentView: View {
     }
     .animation(.spring(response: 0.7, dampingFraction: 1, blendDuration: 1))
 
-              .navigationTitle("")
-              .navigationBarHidden(true)
+//              .navigationTitle("ehe")
+            
+//              .navigationBarHidden(true)
             }
     //      }
   }

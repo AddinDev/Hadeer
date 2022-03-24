@@ -13,13 +13,29 @@ extension String {
     inputFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     
     let outputFormat = DateFormatter()
-    outputFormat.dateFormat = "dd-MM-yy"
+    outputFormat.dateFormat = "EEEE, d MMMM"
     
     if let date = inputFormat.date(from: self) {
       let result = outputFormat.string(from: date)
       return result
     }
-    print("TASKERROR: DATE FORMATTING")
+    print("[ERROR DATE][FORMATTING]")
     return ""
   }
+  
+  func formatToHour() -> String {
+    let inputFormat = DateFormatter()
+    inputFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    
+    let outputFormat = DateFormatter()
+    outputFormat.dateFormat = "h:mm a"
+    
+    if let date = inputFormat.date(from: self) {
+      let result = outputFormat.string(from: date)
+      return result
+    }
+    print("[ERROR DATE][FORMATTING]")
+    return ""
+  }
+  
 }

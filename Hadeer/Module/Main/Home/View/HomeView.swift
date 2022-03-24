@@ -37,6 +37,16 @@ struct HomeView: View {
     .navigationTitle("")
     .navigationBarTitleDisplayMode(.inline)
     .navigationBarHidden(true)
+//    .navigationBarItems(leading: Image(systemName: "person.circle")
+//                          .resizable()
+//                          .frame(width: 25, height: 25)
+//                          .onTapGesture {
+//                            auth.signOut()
+//                          },
+//                        trailing: Image(systemName: "bell.fill")
+//                          .resizable()
+//                          .frame(width: 25, height: 25))
+//    .navigationBarColor(backgroundColor: .clear, titleColor: .black)
   }
 }
 
@@ -197,7 +207,7 @@ private struct TaskItemView: View {
       VStack {
         Text(task.title)
           .foregroundColor(.black)
-        Text(task.time)
+        Text(task.time.formatToDate())
           .font(.callout)
           .foregroundColor(Color(.systemGray))
       }
