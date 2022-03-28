@@ -27,6 +27,9 @@ struct HomeView: View {
           }
         }
       }
+//            .refreshable {
+//              presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
+//            }
       .onAppear {
         if presenter.tasks.count == 0 {
           presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))

@@ -13,10 +13,10 @@ struct DetailView: View {
   @StateObject var presenter: DetailPresenter
   var body: some View {
     content
-//      .onAppear {
-//        presenter.fetchAttendance()
-//      }
-//        .navigationBarHidden(true)
+    //      .onAppear {
+    //        presenter.fetchAttendance()
+    //      }
+    //        .navigationBarHidden(true)
   }
 }
 
@@ -25,7 +25,6 @@ extension DetailView {
   private var content: some View {
     ScrollView(showsIndicators: false) {
       VStack(spacing: 0) {
-        image
         bar
         status
         sections
@@ -35,8 +34,8 @@ extension DetailView {
         }
       }
     }
-    .edgesIgnoringSafeArea(.top)
-//    .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
+    .edgesIgnoringSafeArea(.bottom)
+    //    .animation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 1))
   }
   
   private var image: some View {
@@ -88,34 +87,34 @@ extension DetailView {
       .padding(.vertical, 20)
       .frame(width: UIScreen.main.bounds.width)
       devider
-//      VStack {
-//        HStack {
-//          Text("Materi: ")
-//            .bold()
-//          Text("[Link](https://saweria.co/udinda)")
-//          Spacer()
-//        }
-//        LinkPreview(url: URL(string: "https://github.com/AddinDev/Komm"))
-//          .frame(width: UIScreen.main.bounds.width / 1.2)
-//      }
-//      .padding()
-//      .padding(.vertical, 20)
-//      .frame(width: UIScreen.main.bounds.width)
-//      devider
-//      VStack {
-//        HStack {
-//          Text("Absensi: ")
-//            .bold()
-//          Text("[Link](https://apple.com)")
-//          Spacer()
-//        }
-//        LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))
-//          .frame(width: UIScreen.main.bounds.width / 1.2)
-//      }
-//      .padding()
-//      .padding(.vertical, 20)
-//      .frame(width: UIScreen.main.bounds.width)
-//      devider
+      //      VStack {
+      //        HStack {
+      //          Text("Materi: ")
+      //            .bold()
+      //          Text("[Link](https://saweria.co/udinda)")
+      //          Spacer()
+      //        }
+      //        LinkPreview(url: URL(string: "https://github.com/AddinDev/Komm"))
+      //          .frame(width: UIScreen.main.bounds.width / 1.2)
+      //      }
+      //      .padding()
+      //      .padding(.vertical, 20)
+      //      .frame(width: UIScreen.main.bounds.width)
+      //      devider
+      //      VStack {
+      //        HStack {
+      //          Text("Absensi: ")
+      //            .bold()
+      //          Text("[Link](https://apple.com)")
+      //          Spacer()
+      //        }
+      //        LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))
+      //          .frame(width: UIScreen.main.bounds.width / 1.2)
+      //      }
+      //      .padding()
+      //      .padding(.vertical, 20)
+      //      .frame(width: UIScreen.main.bounds.width)
+      //      devider
     }
   }
   
@@ -169,7 +168,7 @@ struct StudentView: View {
           }
       } else if isLoading {
         ProgressView().progressViewStyle(CircularProgressViewStyle())
-    } else {
+      } else {
         Button(action: {
           presenter.attend(id: student.id, 1) { attended, loading in
             isAttended = attended
