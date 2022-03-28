@@ -15,6 +15,9 @@
 		B80984BB27C4914F006B7224 /* HadeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BA27C4914F006B7224 /* HadeerUITests.swift */; };
 		B80984BD27C4914F006B7224 /* HadeerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */; };
 		B80984CB27C495C0006B7224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B80984CA27C495C0006B7224 /* Alamofire */; };
+		B80C1E2327EC26A400423B2D /* AttendanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80C1E2227EC26A400423B2D /* AttendanceResponse.swift */; };
+		B80C1E2527EC274900423B2D /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80C1E2427EC274900423B2D /* AttendanceModel.swift */; };
+		B80C1E2727EC27F700423B2D /* AttendanceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80C1E2627EC27F700423B2D /* AttendanceMapper.swift */; };
 		B8191A3E27E417AF004FD39E /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A3D27E417AF004FD39E /* UserResponse.swift */; };
 		B8191A4027E419C7004FD39E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A3F27E419C7004FD39E /* UserModel.swift */; };
 		B8191A4227E41A48004FD39E /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A4127E41A48004FD39E /* UserMapper.swift */; };
@@ -86,6 +89,9 @@
 		B80984B627C4914F006B7224 /* HadeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HadeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80984BA27C4914F006B7224 /* HadeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITests.swift; sourceTree = "<group>"; };
 		B80984BC27C4914F006B7224 /* HadeerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadeerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B80C1E2227EC26A400423B2D /* AttendanceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceResponse.swift; sourceTree = "<group>"; };
+		B80C1E2427EC274900423B2D /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
+		B80C1E2627EC27F700423B2D /* AttendanceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMapper.swift; sourceTree = "<group>"; };
 		B8191A3D27E417AF004FD39E /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		B8191A3F27E419C7004FD39E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B8191A4127E41A48004FD39E /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
@@ -399,6 +405,7 @@
 				B85051ED27DAE51500483346 /* TaskResponse.swift */,
 				B8191A3D27E417AF004FD39E /* UserResponse.swift */,
 				B87BC7F727E8042100FF8BFB /* CommentResponse.swift */,
+				B80C1E2227EC26A400423B2D /* AttendanceResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -439,6 +446,7 @@
 			children = (
 				B85051F127DAE75600483346 /* TaskMapper.swift */,
 				B8191A4127E41A48004FD39E /* UserMapper.swift */,
+				B80C1E2627EC27F700423B2D /* AttendanceMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 			children = (
 				B8191A3F27E419C7004FD39E /* UserModel.swift */,
 				B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */,
+				B80C1E2427EC274900423B2D /* AttendanceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -716,7 +725,9 @@
 				B85051F227DAE75600483346 /* TaskMapper.swift in Sources */,
 				B867B8F427C70982008772E5 /* Colors.swift in Sources */,
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
+				B80C1E2327EC26A400423B2D /* AttendanceResponse.swift in Sources */,
 				B84070C127CF1EAE006A2AEF /* DefaultResponse.swift in Sources */,
+				B80C1E2727EC27F700423B2D /* AttendanceMapper.swift in Sources */,
 				B8191A3E27E417AF004FD39E /* UserResponse.swift in Sources */,
 				B8191A4027E419C7004FD39E /* UserModel.swift in Sources */,
 				B87BC84C27E830F000FF8BFB /* UserEntity.swift in Sources */,
@@ -749,6 +760,7 @@
 				B8E9EF4C27C75D2C007D3F8C /* Injection.swift in Sources */,
 				B80984A227C4914E006B7224 /* ContentView.swift in Sources */,
 				B80984A027C4914E006B7224 /* HadeerApp.swift in Sources */,
+				B80C1E2527EC274900423B2D /* AttendanceModel.swift in Sources */,
 				B87BC84A27E8307500FF8BFB /* LocaleDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,8 @@ import Combine
 
 protocol DetailUseCase {
   func getTask() -> TaskModel
-  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error>
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String, _ status: Int) -> AnyPublisher<DefaultResponse, Error>
+  func fetchAttendance(_ id: String) -> AnyPublisher<AttendanceModels, Error>
 }
 
 class DetailInteractor {
@@ -32,8 +33,12 @@ extension DetailInteractor: DetailUseCase {
     return self.task
   }
   
-  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error> {
-    return repository.attend(taskId, teacherId, studentId)
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String, _ status: Int) -> AnyPublisher<DefaultResponse, Error> {
+    return repository.attend(taskId, teacherId, studentId, status)
+  }
+  
+  func fetchAttendance(_ id: String) -> AnyPublisher<AttendanceModels, Error> {
+    return repository.fetchAttendance(id)
   }
   
 }

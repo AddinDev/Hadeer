@@ -12,7 +12,8 @@ import Alamofire
 protocol RemoteDataSourceProtocol {
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserResponsesContainer, Error>
   func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskResponses, Error>
-  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error>
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String, _ status: Int) -> AnyPublisher<DefaultResponse, Error>
+  func fetchAttendance(_ id: String) -> AnyPublisher<AttendanceResponses, Error>
 }
 
 final class RemoteDataSource {
@@ -33,34 +34,34 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
       let auth = SignInAuthorizationModel(serverkey: Api.serverKey,
                                           username: username,
                                           password: password).encryptAndEncode()
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue(auth, forHTTPHeaderField: "Authorization")
       
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-          if let error = error {
-            print("[ERROR][SIGNIN][\(error.localizedDescription)]")
-            completion(.failure(error))
-            return
-          }
-          if let data = data {
-            do {
-              let result = try JSONDecoder().decode(UserResponsesContainer.self, from: data)
-              print("[SUCCESS]")
-              completion(.success(result))
-            } catch {
-              print("[ERROR][SIGNIN]")
-              debugPrint(error)
-              completion(.failure(URLError.custom("Wrong credentials")))
-            }
-          } else {
-            completion(.failure(URLError.invalidResponse))
-          }
+      var request = URLRequest(url: url)
+      request.httpMethod = "POST"
+      request.setValue(auth, forHTTPHeaderField: "Authorization")
+      
+      let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        if let error = error {
+          print("[ERROR][SIGNIN][\(error.localizedDescription)]")
+          completion(.failure(error))
+          return
         }
-        task.resume()
-      
+        if let data = data {
+          do {
+            let result = try JSONDecoder().decode(UserResponsesContainer.self, from: data)
+            print("[SUCCESS]")
+            completion(.success(result))
+          } catch {
+            print("[ERROR][SIGNIN]")
+            debugPrint(error)
+            completion(.failure(URLError.custom("Wrong credentials")))
+          }
+        } else {
+          completion(.failure(URLError.invalidResponse))
+        }
       }
+      task.resume()
+      
+    }
     .eraseToAnyPublisher()
   }
   
@@ -101,20 +102,50 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     .eraseToAnyPublisher()
   }
   
-  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error> {
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String, _ status: Int) -> AnyPublisher<DefaultResponse, Error> {
     return Future<DefaultResponse, Error> { completion in
-      print("[ATTEND]")
+      
+      let auth = "eyJzZXJ2ZXJrZXkiOiJCMXNtaWxsNGhVSklLT00iLCJ1c2VybmFtZSI6Im1ybmljayIsInBhc3N3b3JkIjoiTmlja3kxMjMifQo="
       
       let body: [String: Any] = [
-        "siswa_id": studentId,
-        "pelajaran_id": taskId,
-        "guru_id": teacherId,
-        "status": "1"
+        "siswa_id": Int(studentId) ?? 0,
+        "pelajaran_id": Int(taskId) ?? 0,
+        "guru_id": Int(teacherId) ?? 0,
+        "status": status
       ]
-
+      
+      guard let url = URL(string: Api.attend) else {
+        print("[ERROR][URL NOT VALID]")
+        return
+      }
+      
+      AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: ["Authorization": auth])
+        .responseDecodable(of: DefaultResponse.self) { response in
+          switch response.result {
+            case .success(let value):
+              print("[SUCCESS][ATTEND]")
+              completion(.success(value))
+            case .failure(let error):
+              print("[ERROR][ATTEND][\(error.localizedDescription)]")
+              completion(.failure(error))
+          }
+        }
+      print("[ATTEND STUDENT][\(studentId)]")
+    }
+    .eraseToAnyPublisher()
+  }
+  
+  func fetchAttendance(_ id: String) -> AnyPublisher<AttendanceResponses, Error> {
+    return Future<AttendanceResponses, Error> { completion in
+      print("[FETCH ATTENDANCE][\(id)]")
+      
+      let body: [String: Any] = [
+        "pelajaran_id": id
+      ]
+      
       let jsonData = try? JSONSerialization.data(withJSONObject: body)
       
-      let components = URLComponents(string: Api.attend)
+      let components = URLComponents(string: Api.attendance)
       
       guard let urlString = components?.string else { return }
       guard let url = URL(string: urlString) else { return }
@@ -124,19 +155,21 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
       
       let task = URLSession.shared.dataTask(with: request) { data, _, error in
         if let error = error {
-          print("[ERROR ATTEND][\(error.localizedDescription)]")
+          print("[ERROR ATTENDANCE][\(id)][\(error.localizedDescription)]")
           completion(.failure(error))
           return
         }
         if let data = data {
           do {
-            let result = try JSONDecoder().decode(DefaultResponse.self, from: data)
-            completion(.success(result))
+            let result = try JSONDecoder().decode(AttendanceResponseContainer.self, from: data)
+            completion(.success(result.result))
             print("[SUCCESS]")
           } catch {
+            print("[ERROR ATTENDANCE][\(id)][\(error)]")
             completion(.failure(error))
           }
         } else {
+          print("[ERROR ATTENDANCE]")
           completion(.failure(URLError.custom("Data can't be initialized")))
         }
       }
@@ -144,5 +177,5 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
     }
     .eraseToAnyPublisher()
   }
-    
+  
 }

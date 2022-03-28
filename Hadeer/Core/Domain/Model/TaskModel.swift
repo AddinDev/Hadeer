@@ -24,4 +24,13 @@ typealias TaskModels = [TaskModel]
 struct StudentsOfTaskModel: Identifiable {
   let id: String
   let name: String
+  let status: String
+  
+  func isAttended() -> Bool {
+    if status == "1" {
+      return true
+    }
+    return false
+  }
+  
 }

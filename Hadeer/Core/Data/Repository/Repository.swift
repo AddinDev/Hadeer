@@ -12,8 +12,9 @@ protocol RepositoryProtocol {
 //  func signUp(_ username: String, _ email: String, _ phone: String, _ password: String) -> AnyPublisher<DefaultResponse, Error>
   func signIn(_ username: String, _ password: String) -> AnyPublisher<UserModel, Error>
   func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskModels, Error>
-  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error>
-  
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String, _ status: Int) -> AnyPublisher<DefaultResponse, Error>
+  func fetchAttendance(_ id: String) -> AnyPublisher<AttendanceModels, Error>
+
 }
 
 final class Repository {
@@ -46,8 +47,14 @@ extension Repository: RepositoryProtocol {
       .eraseToAnyPublisher()
   }
   
-  func attend(_ taskId: String, _ teacherId: String, _ studentId: String) -> AnyPublisher<DefaultResponse, Error> {
-    self.remote.attend(taskId, teacherId, studentId)
+  func attend(_ taskId: String, _ teacherId: String, _ studentId: String, _ status: Int) -> AnyPublisher<DefaultResponse, Error> {
+    self.remote.attend(taskId, teacherId, studentId, status)
+  }
+  
+  func fetchAttendance(_ id: String) -> AnyPublisher<AttendanceModels, Error> {
+    self.remote.fetchAttendance(id)
+      .map { AttendanceMapper.responseToDomain($0) }
+      .eraseToAnyPublisher()
   }
   
 }

@@ -15,7 +15,9 @@ struct Api {
   static let signUp = "\(baseUrl)/api/register"
   static let attend = "\(baseUrl)/api/attend"
   
-  static let studentTasks = "http://\(ip):3000/api/getpelajaranbykelas" // GET
+  static let attendance = "\(baseUrl)/api/getattendancekelas"
+  
+  static let studentTasks = "http://\(ip):3000/api/getpelajaranbykelas"
   static let teacherTasks = "http://\(ip):3000/api/getpelajaranbyguruid"
   static let serverKey = "B1smill4hUJIKOM"
   

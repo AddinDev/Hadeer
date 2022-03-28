@@ -17,7 +17,7 @@ struct TaskMapper {
   
   static private func studentsResponseToModel(_ response: [StudentsOfTaskResponse]) -> [StudentsOfTaskModel] {
     response.map { response in
-      return StudentsOfTaskModel(id: response.idSiswa, name: response.namaSiswa)
+      return StudentsOfTaskModel(id: response.idSiswa, name: response.namaSiswa, status: response.status ?? "0")
     }
   }
   

@@ -25,11 +25,10 @@ class DetailPresenter: ObservableObject {
     self.task = useCase.getTask()
   }
   
-  func attend(id: String, action: @escaping (Bool, Bool) -> Void) {
+  func attend(id: String, _ status: Int, action: @escaping (Bool, Bool) -> Void) {
     isLoading = true
     action(false, true)
-    print("[ATTEND STUDENT][\(id)]")
-    self.useCase.attend(task.id, task.teacherId, id)
+    self.useCase.attend(task.id, task.teacherId, id, status)
       .receive(on: RunLoop.main)
       .sink { completion in
         switch completion {
@@ -37,13 +36,34 @@ class DetailPresenter: ObservableObject {
             self.isLoading = false
             self.isError = false
             self.errorMessage = ""
-            action(true, false)
+            action((status != 0), false)
           case .failure(let error):
             self.isLoading = false
             self.isError = true
             self.errorMessage = error.localizedDescription
         }
       } receiveValue: { _ in
+      }
+      .store(in: &cancellables)
+  }
+  // BACKEND GJLS
+  func fetchAttendance() {
+    isLoading = true
+    self.useCase.fetchAttendance(task.id)
+      .receive(on: RunLoop.main)
+      .sink { completion in
+        switch completion {
+          case .finished:
+            self.isLoading = false
+            self.isError = false
+            self.errorMessage = ""
+          case .failure(let error):
+            self.isLoading = false
+            self.isError = true
+            self.errorMessage = error.localizedDescription
+        }
+      } receiveValue: { value in
+        print("[FETCH ATTENDANCE][VALUE][\(value)]")
       }
       .store(in: &cancellables)
   }

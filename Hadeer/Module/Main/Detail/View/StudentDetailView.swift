@@ -13,6 +13,9 @@ struct DetailView: View {
   @StateObject var presenter: DetailPresenter
   var body: some View {
     content
+//      .onAppear {
+//        presenter.fetchAttendance()
+//      }
 //        .navigationBarHidden(true)
   }
 }
@@ -85,34 +88,34 @@ extension DetailView {
       .padding(.vertical, 20)
       .frame(width: UIScreen.main.bounds.width)
       devider
-      VStack {
-        HStack {
-          Text("Materi: ")
-            .bold()
-          Text("[Link](https://saweria.co/udinda)")
-          Spacer()
-        }
-        LinkPreview(url: URL(string: "https://github.com/AddinDev/Komm"))
-          .frame(width: UIScreen.main.bounds.width / 1.2)
-      }
-      .padding()
-      .padding(.vertical, 20)
-      .frame(width: UIScreen.main.bounds.width)
-      devider
-      VStack {
-        HStack {
-          Text("Absensi: ")
-            .bold()
-          Text("[Link](https://apple.com)")
-          Spacer()
-        }
-        LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))
-          .frame(width: UIScreen.main.bounds.width / 1.2)
-      }
-      .padding()
-      .padding(.vertical, 20)
-      .frame(width: UIScreen.main.bounds.width)
-      devider
+//      VStack {
+//        HStack {
+//          Text("Materi: ")
+//            .bold()
+//          Text("[Link](https://saweria.co/udinda)")
+//          Spacer()
+//        }
+//        LinkPreview(url: URL(string: "https://github.com/AddinDev/Komm"))
+//          .frame(width: UIScreen.main.bounds.width / 1.2)
+//      }
+//      .padding()
+//      .padding(.vertical, 20)
+//      .frame(width: UIScreen.main.bounds.width)
+//      devider
+//      VStack {
+//        HStack {
+//          Text("Absensi: ")
+//            .bold()
+//          Text("[Link](https://apple.com)")
+//          Spacer()
+//        }
+//        LinkPreview(url: URL(string: "https://github.com/AddinDev/coronaX"))
+//          .frame(width: UIScreen.main.bounds.width / 1.2)
+//      }
+//      .padding()
+//      .padding(.vertical, 20)
+//      .frame(width: UIScreen.main.bounds.width)
+//      devider
     }
   }
   
@@ -158,11 +161,17 @@ struct StudentView: View {
       Spacer()
       if isAttended {
         Text("Attended")
+          .onTapGesture {
+            presenter.attend(id: student.id, 0) { attended, loading in
+              isAttended = attended
+              isLoading = loading
+            }
+          }
       } else if isLoading {
         ProgressView().progressViewStyle(CircularProgressViewStyle())
     } else {
         Button(action: {
-          presenter.attend(id: student.id) { attended, loading in
+          presenter.attend(id: student.id, 1) { attended, loading in
             isAttended = attended
             isLoading = loading
           }
@@ -172,6 +181,9 @@ struct StudentView: View {
       }
     }
     .padding()
+    .onAppear {
+      isAttended = student.isAttended()
+    }
   }
 }
 
