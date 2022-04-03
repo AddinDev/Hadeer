@@ -79,6 +79,12 @@ extension SignerView {
           Text("Password")
           SecureField("Password", text: $password)
             .textInputAutocapitalization(.none)
+            .onSubmit({
+              presenter.signIn(username, password) { user in
+                auth.change(UserMapper.domainToAuth(user))
+                auth.signIn()
+              }
+            })
             .padding()
             .background(
               Color(.systemGray6)

@@ -23,7 +23,8 @@ struct TaskResponse: Codable {
   let id, nama, kelas, guruID: String
   let waktu, materi: String
   let namaGuru: String
-  let siswa: [StudentsOfTaskResponse]
+  let siswa: [StudentsOfTaskResponse]?
+  let status: String?
   
   enum CodingKeys: String, CodingKey {
     case id, nama, kelas
@@ -31,6 +32,7 @@ struct TaskResponse: Codable {
     case waktu, materi
     case namaGuru = "nama_guru"
     case siswa
+    case status
   }
 }
 

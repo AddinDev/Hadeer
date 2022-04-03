@@ -91,6 +91,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
             completion(.success(result.result))
             print("[SUCCESS]")
           } catch {
+            print("[ERROR FETCH TASK][\(error)]")
             completion(.failure(error))
           }
         } else {
@@ -111,7 +112,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
         "siswa_id": Int(studentId) ?? 0,
         "pelajaran_id": Int(taskId) ?? 0,
         "guru_id": Int(teacherId) ?? 0,
-        "status": status
+        "status": status == 0 ? nil : 1
       ]
       
       guard let url = URL(string: Api.attend) else {

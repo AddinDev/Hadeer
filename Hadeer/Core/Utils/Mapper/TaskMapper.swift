@@ -11,7 +11,7 @@ struct TaskMapper {
   
   static func responseToDomain(_ responses: TaskResponses) -> [TaskModel] {
     return responses.map { response in
-      return TaskModel(id: response.id, title: response.nama, grade: response.kelas, teacherName: response.namaGuru, teacherId: response.guruID, time: response.waktu, material: response.materi, students: studentsResponseToModel(response.siswa))
+      return TaskModel(id: response.id, title: response.nama, grade: response.kelas, teacherName: response.namaGuru, teacherId: response.guruID, time: response.waktu, material: response.materi, status: response.status == nil ? "0" : "1", students: studentsResponseToModel(response.siswa ?? []))
     }
   }
   

@@ -38,4 +38,14 @@ extension String {
     return ""
   }
   
+  func toDate() -> Date {
+    let inputFormat = DateFormatter()
+    inputFormat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    
+    if let date = inputFormat.date(from: self) {
+      return date
+    }
+    return Date()
+  }
+  
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TaskModel: Identifiable {
   let id: String
@@ -15,7 +16,17 @@ struct TaskModel: Identifiable {
   let teacherId: String
   let time: String
   let material: String
+  let status: String
   let students: [StudentsOfTaskModel]
+  
+  func color() -> Color {
+    switch status {
+      case "0": return .cred
+      case "1": return .cgreen
+      case "2": return .cblue
+      default: return .cgreen
+    }
+  }
   
 }
 

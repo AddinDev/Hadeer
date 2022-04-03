@@ -43,7 +43,8 @@ class HomePresenter: ObservableObject {
             self.errorMessage = error.localizedDescription
         }
       } receiveValue: { tasks in
-        self.tasks = tasks
+//        self.tasks = []
+        self.tasks = tasks.sorted(by: { $0.id > $1.id })
       }
       .store(in: &cancellables)
   }

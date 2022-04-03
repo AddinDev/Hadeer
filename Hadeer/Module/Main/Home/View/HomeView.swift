@@ -27,15 +27,11 @@ struct HomeView: View {
           }
         }
       }
-//            .refreshable {
-//              presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
-//            }
       .onAppear {
         if presenter.tasks.count == 0 {
           presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
         }
       }
-
     }
     .navigationTitle("")
     .navigationBarTitleDisplayMode(.inline)
@@ -156,11 +152,11 @@ extension HomeView {
       } else if presenter.tasks.isEmpty {
         emptyIndicator
       } else {
-        LazyVStack(spacing: 10) {
+       VStack(spacing: 10) {
           
           ForEach(presenter.tasks, id: \.id) { task in
             presenter.linkBuilder(for: task) {
-              TaskItemView(task: task, color: .cgreen)
+              TaskItemView(task: task, color: auth.savedUser.isStudent() ? task.color() : .cgreen)
             }
           }
         }
