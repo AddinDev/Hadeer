@@ -16,6 +16,10 @@ class HomePresenter: ObservableObject {
   @Published var isError = false
   @Published var errorMessage = ""
   
+  @Published var hadir = 0
+  @Published var alpha = 0
+  @Published var izin = 0
+  
   private var cancellables: Set<AnyCancellable> = []
   
   private let router = HomeRouter()
@@ -45,6 +49,10 @@ class HomePresenter: ObservableObject {
       } receiveValue: { tasks in
 //        self.tasks = []
         self.tasks = tasks.sorted(by: { $0.id > $1.id })
+        self.alpha = tasks.filter({$0.status == nil}).count
+//        self.alpha = tasks.filter({$0.status == "0"}).count
+        self.hadir = tasks.filter({$0.status == "1"}).count
+        self.izin = tasks.filter({$0.status == "2"}).count
       }
       .store(in: &cancellables)
   }

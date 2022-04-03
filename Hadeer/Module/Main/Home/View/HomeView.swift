@@ -115,6 +115,7 @@ extension HomeView {
           .resizable()
           .frame(width: 25, height: 25)
           .onTapGesture {
+            presenter.tasks = []
             auth.signOut()
           }
         spacer
@@ -138,11 +139,11 @@ extension HomeView {
       .padding(.bottom, 20)
       HStack {
         spacer
-        CategoryBoxView(title: "Hadir", quantity: 200, color: .cgreen)
+        CategoryBoxView(title: "Hadir", quantity: presenter.hadir, color: .cgreen)
         spacer
-        CategoryBoxView(title: "Alpha", quantity: 5, color: .cred)
+        CategoryBoxView(title: "Alpha", quantity: presenter.alpha, color: .cred)
         spacer
-        CategoryBoxView(title: "Izin", quantity: 200, color: .cpurple)
+        CategoryBoxView(title: "Izin", quantity: presenter.izin, color: .cpurple)
         spacer
       }
       if presenter.isLoading {
