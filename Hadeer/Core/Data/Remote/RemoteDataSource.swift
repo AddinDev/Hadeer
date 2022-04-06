@@ -68,39 +68,88 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
   func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskResponses, Error> {
     return Future<TaskResponses, Error> { completion in
       print("[FETCH STUDENT TASK]")
-      ///
-      /// RESULT DOUBLE
-      ///
-      var components = URLComponents(string: user.isStudent() ? Api.studentTasks : Api.teacherTasks)
-      components?.queryItems = [
-        user.isStudent() ? URLQueryItem(name: "kelas", value: user.grade) : URLQueryItem(name: "guruid", value: user.id)
-      ]
       
-      guard let urlString = components?.string else { return }
-      guard let url = URL(string: urlString) else { return }
-      var request = URLRequest(url: url)
-      request.httpMethod = "GET"
+      // RESULT DOUBLE
       
-      let task = URLSession.shared.dataTask(with: request) { data, _, error in
-        if let error = error {
-          print("[ERROR FETCH TASK][\(error.localizedDescription)]")
-          completion(.failure(error))
-          return
-        }
-        if let data = data {
-          do {
-            let result = try JSONDecoder().decode(TaskResponsesContainer.self, from: data)
-            completion(.success(result.result))
-            print("[SUCCESS]")
-          } catch {
-            print("[ERROR FETCH TASK][\(error)]")
-            completion(.failure(error))
+      switch user.isStudent() {
+        case true:
+          let apis = [Api.studentTasks, Api.studentTasksId(user.id)]
+          var tasks: TaskResponses = []
+          for i in 0..<apis.count {
+            var components = URLComponents(string: apis[i])
+            components?.queryItems = [
+              i == 0 ? URLQueryItem(name: "search", value: user.grade) : URLQueryItem(name: "siswaid", value: user.id)
+            ]
+            
+            guard let urlString = components?.string else { return }
+            guard let url = URL(string: urlString) else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+              if let error = error {
+                print("[ERROR FETCH TASK][\(error.localizedDescription)]")
+                completion(.failure(error))
+                return
+              }
+              if let data = data {
+                do {
+                  let result = try JSONDecoder().decode(TaskResponsesContainer.self, from: data)
+//                  completion(.success(result.result))
+//                  print("[SUCCESS]")
+                  let final = result.result
+                  if i == 0 {
+                  tasks = final
+                  } else {
+                    for task in final {
+                      tasks = tasks.filter({$0.id != task.id})
+                      tasks.append(task)
+                    }
+                    completion(.success(tasks))
+                  }
+                } catch {
+                  print("[ERROR FETCH TASK][\(error)]")
+                  completion(.failure(error))
+                }
+              } else {
+                completion(.failure(URLError.custom("Data can't be initialized")))
+              }
+            }
+            task.resume()
           }
-        } else {
-          completion(.failure(URLError.custom("Data can't be initialized")))
-        }
+//          completion(.success(tasks))
+        case false:
+          var components = URLComponents(string: Api.teacherTasks)
+          components?.queryItems = [
+            URLQueryItem(name: "guruid", value: user.id)
+          ]
+          guard let urlString = components?.string else { return }
+          guard let url = URL(string: urlString) else { return }
+          var request = URLRequest(url: url)
+          request.httpMethod = "GET"
+          
+          let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+              print("[ERROR FETCH TASK][\(error.localizedDescription)]")
+              completion(.failure(error))
+              return
+            }
+            if let data = data {
+              do {
+                let result = try JSONDecoder().decode(TaskResponsesContainer.self, from: data)
+                completion(.success(result.result))
+                print("[SUCCESS]")
+              } catch {
+                print("[ERROR FETCH TASK][\(error)]")
+                completion(.failure(error))
+              }
+            } else {
+              completion(.failure(URLError.custom("Data can't be initialized")))
+            }
+          }
+          task.resume()
       }
-      task.resume()
+      
     }
     .eraseToAnyPublisher()
   }
@@ -126,14 +175,13 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
         .responseDecodable(of: DefaultResponse.self) { response in
           switch response.result {
             case .success(let value):
-              print("[SUCCESS][ATTEND]")
+              print("[SUCCESS][ATTEND][\(studentId)][\(status)]")
               completion(.success(value))
             case .failure(let error):
               print("[ERROR][ATTEND][\(error.localizedDescription)]")
               completion(.failure(error))
           }
         }
-      print("[ATTEND STUDENT][\(studentId)]")
     }
     .eraseToAnyPublisher()
   }

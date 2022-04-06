@@ -16,7 +16,7 @@ struct TaskModel: Identifiable {
   let teacherId: String
   let time: String
   let material: String
-  let status: String
+  var status: String
   let students: [StudentsOfTaskModel]
   
   func color() -> Color {
@@ -38,10 +38,42 @@ struct StudentsOfTaskModel: Identifiable {
   let status: String
   
   func isAttended() -> Bool {
-    if status == "1" {
+    if status != "0" {
       return true
     }
     return false
+  }
+  
+  func statusDesc() -> TaskStatus {
+    switch status {
+      case "1": return .hadir
+      case "2": return .izin
+      case "3": return .alpha
+      default:
+        return .general
+    }
+  }
+  
+}
+
+enum TaskStatus: String {
+  
+  case general
+  case hadir
+  case izin
+  case alpha
+  
+  var description: String {
+    switch self {
+      case .hadir:
+        return "Attended"
+      case .izin:
+        return "Izin"
+      case .alpha:
+        return "Alpha"
+      case .general:
+        return "Attend"
+    }
   }
   
 }

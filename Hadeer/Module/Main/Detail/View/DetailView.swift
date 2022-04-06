@@ -1,5 +1,5 @@
 //
-//  StudentDetailView.swift
+//  DetailView.swift
 //  Hadeer
 //
 //  Created by Addin Satria on 24/02/22.
@@ -44,7 +44,7 @@ extension DetailView {
       .scaledToFit()
   }
   private var bar: some View {
-    presenter.task.color()
+    presenter.color
       .frame(width: UIScreen.main.bounds.width, height: 30)
   }
   
@@ -154,12 +154,15 @@ struct StudentView: View {
   var student: StudentsOfTaskModel
   @State private var isLoading: Bool = false
   @State private var isAttended: Bool = false
+  @State private var status = "0"
+  @State private var statusDescription = ""
   var body: some View {
     HStack {
       Text(student.name)
       Spacer()
       if isAttended {
-        Text("Attended")
+        Text(statusDescription)
+          .foregroundColor(color(status))
           .onTapGesture {
            attend(0)
           }
@@ -184,6 +187,8 @@ struct StudentView: View {
     .padding()
     .onAppear {
       isAttended = student.isAttended()
+      status = student.status
+      statusDescription = student.statusDesc().description
     }
   }
   
@@ -191,6 +196,27 @@ struct StudentView: View {
     presenter.attend(id: student.id, code) { attended, loading in
       isAttended = attended
       isLoading = loading
+    }
+    status = String(code)
+    statusDescription = statusDesc(String(code))
+  }
+  
+  private func statusDesc(_ status: String) -> String {
+    switch status {
+      case "1": return "Hadir"
+      case "2": return "Izin"
+      case "3": return "Alpha"
+      default:
+        return "Attend"
+    }
+  }
+  
+  private func color(_ status: String) -> Color {
+    switch status {
+      case "1": return .cgreen
+      case "2": return .cblue
+      case "3": return .cred
+      default: return .gray
     }
   }
   

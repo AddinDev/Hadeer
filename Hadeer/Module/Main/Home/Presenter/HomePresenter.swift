@@ -56,8 +56,8 @@ class HomePresenter: ObservableObject {
       .store(in: &cancellables)
   }
   
-  func linkBuilder<Content: View>(for task: TaskModel, @ViewBuilder content: () -> Content) -> some View {
-    NavigationLink(destination: router.makeDetailView(for: task)) { content() }
+  func linkBuilder<Content: View>(for task: TaskModel, color: Color, @ViewBuilder content: () -> Content) -> some View {
+    NavigationLink(destination: router.makeDetailView(for: task, color: color)) { content() }
   }
   
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class DetailPresenter: ObservableObject {
   
@@ -16,13 +17,16 @@ class DetailPresenter: ObservableObject {
   @Published var isError = false
   @Published var errorMessage = ""
   
+  let color: Color
+  
   private var cancellables: Set<AnyCancellable> = []
   
   private let useCase: DetailUseCase
   
-  init(useCase: DetailUseCase) {
+  init(useCase: DetailUseCase, color: Color) {
     self.useCase = useCase
     self.task = useCase.getTask()
+    self.color = color
   }
   
   func attend(id: String, _ status: Int, action: @escaping (Bool, Bool) -> Void) {
@@ -36,6 +40,7 @@ class DetailPresenter: ObservableObject {
             self.isLoading = false
             self.isError = false
             self.errorMessage = ""
+            self.task.status = String(status)
             action((status != 0), false)
           case .failure(let error):
             self.isLoading = false

@@ -156,7 +156,7 @@ extension HomeView {
        VStack(spacing: 10) {
           
           ForEach(presenter.tasks, id: \.id) { task in
-            presenter.linkBuilder(for: task) {
+            presenter.linkBuilder(for: task, color: auth.savedUser.isStudent() ? task.color() : .cgreen) {
               TaskItemView(task: task, color: auth.savedUser.isStudent() ? task.color() : .cgreen)
             }
           }
