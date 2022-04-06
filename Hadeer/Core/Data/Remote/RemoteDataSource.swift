@@ -68,7 +68,9 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
   func fetchTasks(_ user: UserModel) -> AnyPublisher<TaskResponses, Error> {
     return Future<TaskResponses, Error> { completion in
       print("[FETCH STUDENT TASK]")
-      
+      ///
+      /// RESULT DOUBLE
+      ///
       var components = URLComponents(string: user.isStudent() ? Api.studentTasks : Api.teacherTasks)
       components?.queryItems = [
         user.isStudent() ? URLQueryItem(name: "kelas", value: user.grade) : URLQueryItem(name: "guruid", value: user.id)
@@ -112,7 +114,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
         "siswa_id": Int(studentId) ?? 0,
         "pelajaran_id": Int(taskId) ?? 0,
         "guru_id": Int(teacherId) ?? 0,
-        "status": status == 0 ? nil : 1
+        "status": status == 0 ? nil : status
       ]
       
       guard let url = URL(string: Api.attend) else {
@@ -146,6 +148,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
       
       let jsonData = try? JSONSerialization.data(withJSONObject: body)
       
+      // API GET ALL TASKS
       let components = URLComponents(string: Api.attendance)
       
       guard let urlString = components?.string else { return }

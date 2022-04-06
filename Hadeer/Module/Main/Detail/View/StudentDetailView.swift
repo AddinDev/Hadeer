@@ -44,7 +44,7 @@ extension DetailView {
       .scaledToFit()
   }
   private var bar: some View {
-    Color.cgreen
+    presenter.task.color()
       .frame(width: UIScreen.main.bounds.width, height: 30)
   }
   
@@ -161,22 +161,24 @@ struct StudentView: View {
       if isAttended {
         Text("Attended")
           .onTapGesture {
-            presenter.attend(id: student.id, 0) { attended, loading in
-              isAttended = attended
-              isLoading = loading
-            }
+           attend(0)
           }
       } else if isLoading {
         ProgressView().progressViewStyle(CircularProgressViewStyle())
       } else {
-        Button(action: {
-          presenter.attend(id: student.id, 1) { attended, loading in
-            isAttended = attended
-            isLoading = loading
-          }
-        }) {
-          Text("Attend")
+        Menu("Attend") {
+          Button("Attended") { attend(1) }
+          Button("Izin") { attend(2) }
+          Button("Alpha") { attend(3) }
         }
+        //        Button(action: {
+        //          presenter.attend(id: student.id, 1) { attended, loading in
+        //            isAttended = attended
+        //            isLoading = loading
+        //          }
+        //        }) {
+        //          Text("Attend")
+        //        }
       }
     }
     .padding()
@@ -184,6 +186,14 @@ struct StudentView: View {
       isAttended = student.isAttended()
     }
   }
+  
+  private func attend(_ code: Int) {
+    presenter.attend(id: student.id, code) { attended, loading in
+      isAttended = attended
+      isLoading = loading
+    }
+  }
+  
 }
 
 // struct DetailView_Previews: PreviewProvider {

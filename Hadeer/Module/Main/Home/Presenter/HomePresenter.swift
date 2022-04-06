@@ -49,10 +49,9 @@ class HomePresenter: ObservableObject {
       } receiveValue: { tasks in
 //        self.tasks = []
         self.tasks = tasks.sorted(by: { $0.id > $1.id })
-        self.alpha = tasks.filter({$0.status == nil}).count
-//        self.alpha = tasks.filter({$0.status == "0"}).count
         self.hadir = tasks.filter({$0.status == "1"}).count
         self.izin = tasks.filter({$0.status == "2"}).count
+        self.alpha = tasks.filter({$0.status == "3"}).count
       }
       .store(in: &cancellables)
   }

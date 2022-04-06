@@ -17,8 +17,12 @@ struct Api {
   
   static let attendance = "\(baseUrl)/api/getattendancekelas"
   
-  static let studentTasks = "http://\(ip):3000/api/getpelajaranbykelas"
+  static func studentTasksId(_ id: String) -> String {
+    "http://\(ip):3000/api/getpelajaranbysiswaid?siswaid=\(id)"
+  }
   static let teacherTasks = "http://\(ip):3000/api/getpelajaranbyguruid"
+  static let studentTasks = "http://\(ip):3000/api/getpelajaran?search=12"
+  
   static let serverKey = "B1smill4hUJIKOM"
   
 }

@@ -21,10 +21,10 @@ struct TaskModel: Identifiable {
   
   func color() -> Color {
     switch status {
-      case "0": return .cred
       case "1": return .cgreen
       case "2": return .cblue
-      default: return .cgreen
+      case "3": return .cred
+      default: return .gray
     }
   }
   
