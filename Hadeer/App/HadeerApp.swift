@@ -21,11 +21,16 @@ struct HadeerApp: App {
     let signerUseCase = Injection.init().provideSigner()
     let signerPresenter = SignerPresenter(signerUseCase)
     
+    let ssm = StudentSocketManager.sharedInstance
+    let tsm = TeacherSocketManager.sharedInstance
+    
     WindowGroup {
       ContentView()
         .environmentObject(authentication)
         .environmentObject(signerPresenter)
         .environmentObject(homePresenter)
+        .environmentObject(ssm)
+        .environmentObject(tsm)
     }
   }
 }

@@ -13,6 +13,9 @@ import Alamofire
 struct HomeView: View {
   @EnvironmentObject var auth: Authentication
   @ObservedObject var presenter: HomePresenter
+  @EnvironmentObject var ssm: StudentSocketManager
+  
+  @State private var once = false
   var body: some View {
     ZStack {
       Color.white
@@ -30,9 +33,8 @@ struct HomeView: View {
         }
       }
       .onAppear {
-        if presenter.tasks.count == 0 {
+        ssm.login(auth.savedUser.id)
           presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
-        }
       }
     }
     .navigationTitle("")

@@ -46,6 +46,8 @@
 		B87724B827E179F50081EA3F /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87724B727E179F50081EA3F /* DetailPresenter.swift */; };
 		B87A7BAB27FF22D100A3D8FA /* StudentSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A7BAA27FF22D100A3D8FA /* StudentSocketManager.swift */; };
 		B87A7BAD27FF22E600A3D8FA /* TeacherSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A7BAC27FF22E600A3D8FA /* TeacherSocketManager.swift */; };
+		B87A7BB327FF3DC500A3D8FA /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = B87A7BB227FF3DC500A3D8FA /* SocketIO */; };
+		B87A7BBA27FF477400A3D8FA /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A7BB927FF477400A3D8FA /* LocalNotification.swift */; };
 		B87BC7F827E8042100FF8BFB /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7F727E8042100FF8BFB /* CommentResponse.swift */; };
 		B87BC7FC27E80F7900FF8BFB /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */; };
 		B87BC7FE27E810BC00FF8BFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87BC7FD27E810BC00FF8BFB /* Constants.swift */; };
@@ -121,6 +123,7 @@
 		B87724B727E179F50081EA3F /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		B87A7BAA27FF22D100A3D8FA /* StudentSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSocketManager.swift; sourceTree = "<group>"; };
 		B87A7BAC27FF22E600A3D8FA /* TeacherSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSocketManager.swift; sourceTree = "<group>"; };
+		B87A7BB927FF477400A3D8FA /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		B87BC7F727E8042100FF8BFB /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		B87BC7FB27E80F7900FF8BFB /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		B87BC7FD27E810BC00FF8BFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 			files = (
 				B80984CB27C495C0006B7224 /* Alamofire in Frameworks */,
 				B81CF58A27C867C30057080A /* LinkPreview in Frameworks */,
+				B87A7BB327FF3DC500A3D8FA /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +447,7 @@
 				B84070C227CF21B0006A2AEF /* Encode.swift */,
 				B8334C3D27D6EAD900A3B982 /* CustomError.swift */,
 				B89972E527E16F9A00E419D7 /* String.swift */,
+				B87A7BB927FF477400A3D8FA /* LocalNotification.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 			packageProductDependencies = (
 				B80984CA27C495C0006B7224 /* Alamofire */,
 				B81CF58927C867C30057080A /* LinkPreview */,
+				B87A7BB227FF3DC500A3D8FA /* SocketIO */,
 			);
 			productName = Hadeer;
 			productReference = B809849C27C4914D006B7224 /* Hadeer.app */;
@@ -668,6 +674,7 @@
 			packageReferences = (
 				B80984C927C495C0006B7224 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B81CF58827C867C30057080A /* XCRemoteSwiftPackageReference "LinkPreview" */,
+				B87A7BB127FF3DC500A3D8FA /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = B809849D27C4914D006B7224 /* Products */;
 			projectDirPath = "";
@@ -737,6 +744,7 @@
 				B867B8F627C71A3D008772E5 /* HostingController.swift in Sources */,
 				B867B8F827C71A55008772E5 /* NavigationBarModifier.swift in Sources */,
 				B85051F227DAE75600483346 /* TaskMapper.swift in Sources */,
+				B87A7BBA27FF477400A3D8FA /* LocalNotification.swift in Sources */,
 				B867B8F427C70982008772E5 /* Colors.swift in Sources */,
 				B867B8FE27C72462008772E5 /* AppDelegate.swift in Sources */,
 				B80C1E2327EC26A400423B2D /* AttendanceResponse.swift in Sources */,
@@ -1124,6 +1132,14 @@
 				kind = branch;
 			};
 		};
+		B87A7BB127FF3DC500A3D8FA /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1136,6 +1152,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B81CF58827C867C30057080A /* XCRemoteSwiftPackageReference "LinkPreview" */;
 			productName = LinkPreview;
+		};
+		B87A7BB227FF3DC500A3D8FA /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B87A7BB127FF3DC500A3D8FA /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

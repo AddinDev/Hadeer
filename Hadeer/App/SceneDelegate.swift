@@ -27,10 +27,15 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
     let signerUseCase = Injection.init().provideSigner()
     let signerPresenter = SignerPresenter(signerUseCase)
     
+    let ssm = StudentSocketManager.sharedInstance
+    let tsm = TeacherSocketManager.sharedInstance
+    
     let contentView = ContentView()
       .environmentObject(authentication)
       .environmentObject(signerPresenter)
       .environmentObject(homePresenter)
+      .environmentObject(ssm)
+      .environmentObject(tsm)
 
     // Use a UIHostingController as window root view controller.
     if let windowScene = scene as? UIWindowScene {

@@ -150,6 +150,7 @@ extension DetailView {
 }
 
 struct StudentView: View {
+  @EnvironmentObject var tsm: TeacherSocketManager
   @StateObject var presenter: DetailPresenter
   var student: StudentsOfTaskModel
   @State private var isLoading: Bool = false
@@ -172,7 +173,9 @@ struct StudentView: View {
         Menu("Attend") {
           Button("Attended") { attend(1) }
           Button("Izin") { attend(2) }
-          Button("Alpha") { attend(3) }
+          Button("Alpha") { attend(3)
+            tsm.sendNotification(student.id, "Jangan sering Alpha ya")
+          }
         }
         //        Button(action: {
         //          presenter.attend(id: student.id, 1) { attended, loading in

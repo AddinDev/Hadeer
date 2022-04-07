@@ -10,9 +10,11 @@ import SwiftUI
 struct ContentView: View {
   
   @EnvironmentObject var authentication: Authentication
-
   @EnvironmentObject var signerPresenter: SignerPresenter
   @EnvironmentObject var homePresenter: HomePresenter
+  
+  @EnvironmentObject var ssm: StudentSocketManager
+  @EnvironmentObject var tsm: TeacherSocketManager
     
   var body: some View {
           NavigationView {
