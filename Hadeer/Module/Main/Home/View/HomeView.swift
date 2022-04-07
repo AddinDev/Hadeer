@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import Alamofire
-
-// TAMBAH REFRESHER
 
 struct HomeView: View {
   @EnvironmentObject var auth: Authentication
@@ -40,16 +37,6 @@ struct HomeView: View {
     .navigationTitle("")
     .navigationBarTitleDisplayMode(.inline)
     .navigationBarHidden(true)
-//    .navigationBarItems(leading: Image(systemName: "person.circle")
-//                          .resizable()
-//                          .frame(width: 25, height: 25)
-//                          .onTapGesture {
-//                            auth.signOut()
-//                          },
-//                        trailing: Image(systemName: "bell.fill")
-//                          .resizable()
-//                          .frame(width: 25, height: 25))
-//    .navigationBarColor(backgroundColor: .clear, titleColor: .black)
   }
 }
 
@@ -115,17 +102,22 @@ extension HomeView {
   private var content: some View {
     VStack(alignment: .leading) {
       HStack {
-        Image(systemName: "person.circle")
-          .resizable()
-          .frame(width: 25, height: 25)
-          .onTapGesture {
-            presenter.tasks = []
+        Menu {
+          Button("Logout") {
             auth.signOut()
+            ssm.closeConnection()
+            presenter.tasks = []
           }
+        } label: {
+          Image(systemName: "person.circle")
+            .resizable()
+            .frame(width: 25, height: 25)
+            .onTapGesture {
+              presenter.tasks = []
+              auth.signOut()
+            }
+        }
         spacer
-        Image(systemName: "bell.fill")
-          .resizable()
-          .frame(width: 25, height: 25)
       }
       .foregroundColor(.white)
       .padding(.vertical)
