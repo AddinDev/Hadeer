@@ -64,7 +64,7 @@ extension DetailView {
         .frame(width: 1, height: 50)
         .foregroundColor(Color(.systemGray6))
       VStack {
-        Text("Hadir")
+        Text(presenter.task.statusDesc().description)
         Text(presenter.task.time.formatToDate())
           .font(.callout)
           .foregroundColor(Color(.systemGray))

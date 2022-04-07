@@ -28,6 +28,16 @@ struct TaskModel: Identifiable {
     }
   }
   
+  func statusDesc() -> TaskStatus {
+    switch status {
+      case "1": return .hadir
+      case "2": return .izin
+      case "3": return .alpha
+      default:
+        return .general
+    }
+  }
+  
 }
 
 typealias TaskModels = [TaskModel]
@@ -66,7 +76,7 @@ enum TaskStatus: String {
   var description: String {
     switch self {
       case .hadir:
-        return "Attended"
+        return "Hadir"
       case .izin:
         return "Izin"
       case .alpha:
