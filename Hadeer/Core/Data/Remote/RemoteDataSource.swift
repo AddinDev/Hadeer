@@ -73,7 +73,7 @@ extension RemoteDataSource: RemoteDataSourceProtocol {
       
       switch user.isStudent() {
         case true:
-          let apis = [Api.studentTasks, Api.studentTasksId(user.id)]
+          let apis = [Api.studentTasks(user.grade), Api.studentTasksId(user.id)]
           var tasks: TaskResponses = []
           for i in 0..<apis.count {
             var components = URLComponents(string: apis[i])

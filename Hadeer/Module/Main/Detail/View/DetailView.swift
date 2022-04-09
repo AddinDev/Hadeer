@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LinkPreview
 
 struct DetailView: View {
   @EnvironmentObject var auth: Authentication

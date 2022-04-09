@@ -82,7 +82,7 @@ enum TaskStatus: String {
       case .alpha:
         return "Alpha"
       case .general:
-        return "Attend"
+        return "Not Attended"
     }
   }
   

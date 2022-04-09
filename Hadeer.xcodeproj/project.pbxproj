@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,6 @@
 		B8191A3E27E417AF004FD39E /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A3D27E417AF004FD39E /* UserResponse.swift */; };
 		B8191A4027E419C7004FD39E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A3F27E419C7004FD39E /* UserModel.swift */; };
 		B8191A4227E41A48004FD39E /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8191A4127E41A48004FD39E /* UserMapper.swift */; };
-		B81CF58A27C867C30057080A /* LinkPreview in Frameworks */ = {isa = PBXBuildFile; productRef = B81CF58927C867C30057080A /* LinkPreview */; };
 		B8334C3E27D6EAD900A3B982 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8334C3D27D6EAD900A3B982 /* CustomError.swift */; };
 		B8334C4127D6F2FA00A3B982 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8334C4027D6F2FA00A3B982 /* Authentication.swift */; };
 		B8334C4327D6F34F00A3B982 /* UserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8334C4227D6F34F00A3B982 /* UserAuthentication.swift */; };
@@ -148,7 +147,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B80984CB27C495C0006B7224 /* Alamofire in Frameworks */,
-				B81CF58A27C867C30057080A /* LinkPreview in Frameworks */,
 				B87A7BB327FF3DC500A3D8FA /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,7 +594,6 @@
 			name = Hadeer;
 			packageProductDependencies = (
 				B80984CA27C495C0006B7224 /* Alamofire */,
-				B81CF58927C867C30057080A /* LinkPreview */,
 				B87A7BB227FF3DC500A3D8FA /* SocketIO */,
 			);
 			productName = Hadeer;
@@ -663,7 +660,7 @@
 				};
 			};
 			buildConfigurationList = B809849727C4914D006B7224 /* Build configuration list for PBXProject "Hadeer" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -673,7 +670,6 @@
 			mainGroup = B809849327C4914D006B7224;
 			packageReferences = (
 				B80984C927C495C0006B7224 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				B81CF58827C867C30057080A /* XCRemoteSwiftPackageReference "LinkPreview" */,
 				B87A7BB127FF3DC500A3D8FA /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = B809849D27C4914D006B7224 /* Products */;
@@ -1124,14 +1120,6 @@
 				kind = branch;
 			};
 		};
-		B81CF58827C867C30057080A /* XCRemoteSwiftPackageReference "LinkPreview" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/NuPlay/LinkPreview.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		B87A7BB127FF3DC500A3D8FA /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
@@ -1147,11 +1135,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B80984C927C495C0006B7224 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		B81CF58927C867C30057080A /* LinkPreview */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B81CF58827C867C30057080A /* XCRemoteSwiftPackageReference "LinkPreview" */;
-			productName = LinkPreview;
 		};
 		B87A7BB227FF3DC500A3D8FA /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;

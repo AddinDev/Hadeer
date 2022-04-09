@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "LinkPreview",
-        "repositoryURL": "https://github.com/NuPlay/LinkPreview.git",
-        "state": {
-          "branch": "main",
-          "revision": "14ed9e55ee4ce651de85ce3a86daceba10214fea",
-          "version": null
-        }
-      },
-      {
         "package": "SocketIO",
         "repositoryURL": "https://github.com/socketio/socket.io-client-swift.git",
         "state": {

@@ -62,7 +62,7 @@ extension HomeView {
         Text("ERROR")
         Text(presenter.errorMessage)
         Button(action: {
-          presenter.fetchTasks(Constants.dummyUser)
+          presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
         }) {
           VStack {
             Image(systemName: "arrow.counterclockwise")
@@ -112,12 +112,17 @@ extension HomeView {
           Image(systemName: "person.circle")
             .resizable()
             .frame(width: 25, height: 25)
-            .onTapGesture {
-              presenter.tasks = []
-              auth.signOut()
-            }
         }
         spacer
+        if auth.savedUser.isStudent() {
+        Button(action: {
+          presenter.fetchTasks(UserMapper.authToDomain(auth.savedUser))
+        }) {
+          Image(systemName: "arrow.clockwise")
+            .font(.title2)
+            .scaledToFit()
+        }
+      }
       }
       .foregroundColor(.white)
       .padding(.vertical)
